@@ -86,7 +86,7 @@ export default [
           SwitchCase: 1,
         },
       ],
-      quotes: ['error', 'single', { avoidEscape: true }],
+      quotes: [2, 'single', { avoidEscape: true }],
       semi: ['error', 'always'],
       'comma-dangle': ['error', 'always-multiline'],
       'no-multiple-empty-lines': [
