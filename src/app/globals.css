@@ -8,6 +8,7 @@
 
 body {
   font-family: var(--font-helvetica-roman);
+  background-color: #010101;
 }
 
 .light {
@@ -20,7 +21,7 @@ body {
 
 @layer base {
   :root {
-    --background: 0 0% 1%;
+    --background: #010101;
     --foreground: 0 0% 91%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -90,6 +91,40 @@ body {
   animation: slide-in 0.8s ease-out forwards;
 }
 
+.heading {
+  font-size: calc(56px + (97.3 - 56) * ((100vw - 375px) / (640 - 375)));
+}
+
+@media screen and (max-width>768) {
+  .heading {
+    font-size: 66px;
+  }
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 74px; /* Значение для md и выше */
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading {
+    font-size: calc(56px + (97.3 - 56) * ((100vw - 375px) / (640 - 375)));
+  }
+}
+
+@media (min-width: 1280px) {
+  .heading {
+    font-size: 122px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .heading {
+    font-size: calc(72px + (122 - 72) * ((100vw - 720px) / (1280 - 720)));
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -97,4 +132,30 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.react-responsive-3d-carousel__carousel {
+  width: 120vw !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.react-responsive-3d-carousel__list {
+  position: absolute;
+  left: -25vw;
+  width: 150vw !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.react-responsive-3d-carousel__carousel-container {
+  width: 100vw !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.react-responsive-3d-carousel__slider {
+  width: 100vw !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }

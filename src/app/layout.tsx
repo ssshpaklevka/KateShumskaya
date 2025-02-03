@@ -4,37 +4,25 @@ import type { FC } from 'react';
 import React from 'react';
 import localFont from 'next/font/local';
 
-const helvicaLight = localFont({
+const helvetica = localFont({
   src: [
     {
       path: '../../public/fonts/HelveticaNeue-Light.otf',
       weight: '300',
       style: 'normal',
     },
-  ],
-  variable: '--font-helvetica-light',
-});
-
-const helvicaMedium = localFont({
-  src: [
     {
       path: '../../public/fonts/HelveticaNeue-Medium.otf',
       weight: '500',
       style: 'normal',
     },
-  ],
-  variable: '--font-helvetica-medium',
-});
-
-const helvicaRoman = localFont({
-  src: [
     {
       path: '../../public/fonts/HelveticaNeue-Roman.otf',
       weight: '400',
       style: 'normal',
     },
   ],
-  variable: '--font-helvetica-roman',
+  variable: '--font-helvetica',
 });
 
 export const metadata: Metadata = {
@@ -47,11 +35,7 @@ const RootLayout: FC<{
 }> = ({ children }) => {
   return (
     <html lang="en">
-      <body
-        className={`${helvicaLight.variable} ${helvicaMedium.variable} ${helvicaRoman.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${helvetica.className} antialiased`}>{children}</body>
     </html>
   );
 };
