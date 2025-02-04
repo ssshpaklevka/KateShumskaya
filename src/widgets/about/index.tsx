@@ -1,6 +1,6 @@
 'use client';
 import type { FC } from 'react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 
@@ -9,7 +9,21 @@ import { Button } from '@/src/shared/components/ui/button';
 const About: FC = () => {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 }); // amount определяет, какая часть элемента должна быть видима
+  const [fixedHeight, setFixedHeight] = useState(0);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const height = window.innerHeight; // Получаем высоту окна
+      setFixedHeight(height); // Устанавливаем фиксированное значение
+    };
+
+    handleResize(); // Устанавливаем высоту при первом рендере
+    window.addEventListener('resize', handleResize); // Добавляем обработчик события изменения размера
+
+    return () => {
+      window.removeEventListener('resize', handleResize); // Убираем обработчик при размонтировании
+    };
+  }, []);
   const headingVariants = {
     initial: { x: -100, opacity: 0 },
     animate: (i: number) => ({
@@ -40,7 +54,7 @@ const About: FC = () => {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className="relative h-screen"
+      className={`relative h-[${fixedHeight}]`}
     >
       <motion.div
         initial={{ scale: 1.2, opacity: 0 }}
@@ -54,7 +68,7 @@ const About: FC = () => {
           src={'/img/professional/kate.png'}
           width={3000}
           height={3000}
-          className="md:w-auto md:h-screen 2xl:w-auto 2xl:h-screen lg:w-screen lg:h-auto xl:w-[60vw] xl:-left-[200px] xl:bottom-[0px] xl:absolute mb-[20px] lg:static md:absolute  md:-left-[100px] md:bottom-[0px]"
+          className={`md:w-auto md:h-[${fixedHeight}] 2xl:w-auto 2xl:h-[${fixedHeight}] lg:w-screen lg:h-auto xl:w-[60vw] xl:-left-[200px] xl:bottom-[0px] xl:absolute mb-[20px] lg:static md:absolute  md:-left-[100px] md:bottom-[0px]`}
         />
       </motion.div>
 

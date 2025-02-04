@@ -1,47 +1,10 @@
 'use client';
 import Image from 'next/image';
 import type { FC } from 'react';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Carousel } from 'react-responsive-3d-carousel';
 import { motion, AnimatePresence } from 'framer-motion';
 import 'react-responsive-3d-carousel/dist/styles.css';
-// import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-// interface CustomArrowProps {
-//   direction: 'left' | 'right';
-//   onClick: () => void;
-// }
-// const CustomArrow: FC<CustomArrowProps> = ({ direction, onClick }) => (
-//   <button onClick={onClick} className="focus:outline-none">
-//     <svg
-//       width="24"
-//       height="24"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       xmlns="http://www.w3.org/2000/svg"
-//       className="w-12 h-12"
-//     >
-//       <path
-//         d={direction === 'left' ? 'M15 18l-6-6 6-6' : 'M9 18l6-6-6-6'}
-//         stroke="white"
-//         strokeWidth="1"
-//         strokeLinecap="round"
-//         strokeLinejoin="round"
-//       />
-//     </svg>
-//   </button>
-// );
-
-// const SliderControls = () => {
-//   const { slideNext, slidePrev } = useContext(CarouselContext);
-
-//   return (
-//     <div className="flex justify-center items-center gap-14 pb-14">
-//       <CustomArrow direction="left" onClick={slidePrev} />
-//       <CustomArrow direction="right" onClick={slideNext} />
-//     </div>
-//   );
-// };
 
 const Slider: FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -192,7 +155,7 @@ const Slider: FC = () => {
               height={90}
               src={textSrc}
               // Добавьте loading="lazy" для отложенной загрузки
-              loading="lazy"
+              // loading="lazy"
               className="w-[110px] h-[50px] sm:w-[200px] sm:h-[40px] lg:w-[272px] lg:h-[60px] xl:w-[338px] xl:h-[80px] 2xl:w-[200px] 2xl:h-[40px] 3xl:w-[250px] 3xl:h-[60px]"
             />
           </motion.div>
@@ -201,60 +164,63 @@ const Slider: FC = () => {
     );
   };
 
-  const items = [
-    // <ImageWrapper key="slide-0" index={0} src="/img/slider/1.png" />,
-    // <ImageWrapper key="slide-1" index={1} src="/img/slider/2.png" />,
-    // <ImageWrapper key="slide-2" index={2} src="/img/slider/3.png" />,
-    // <ImageWrapper key="slide-3" index={3} src="/img/slider/1.png" />,
-    // <ImageWrapper key="slide-4" index={4} src="/img/slider/1.png" />,
-    // <ImageWrapper key="slide-5" index={5} src="/img/slider/2.png" />,
-    // <ImageWrapper key="slide-6" index={6} src="/img/slider/3.png" />,
-    // <ImageWrapper key="slide-7" index={7} src="/img/slider/1.png" />,
-    <VideoWrapper
-      key="slide-0"
-      textSrc="/img/slider/logitech/logitech.svg"
-      index={0}
-      isActive={currentIndex === 0}
-      src={{
-        mov: '/img/slider/logitech/logitech.mov',
-        mp4: '/img/slider/logitech/logitech.mp4',
-        webm: '/img/slider/logitech/logitech.webm',
-      }}
-    />,
-    <VideoWrapper
-      key="slide-1"
-      textSrc="/img/slider/maxfactor/maxfactor.svg"
-      index={1}
-      isActive={currentIndex === 1}
-      src={{
-        mov: '/img/slider/maxfactor/maxfactor.mov',
-        mp4: '/img/slider/maxfactor/maxfactor.mp4',
-        webm: '/img/slider/maxfactor/maxfactor.webm',
-      }}
-    />,
-    <VideoWrapper
-      key="slide-2"
-      textSrc="/img/slider/spotify/spotify.svg"
-      index={2}
-      isActive={currentIndex === 2}
-      src={{
-        mov: '/img/slider/spotify/spotify.mov',
-        mp4: '/img/slider/spotify/spotify.mp4',
-        webm: '/img/slider/spotify/spotify.webm',
-      }}
-    />,
-    <VideoWrapper
-      key="slide-3"
-      textSrc="/img/slider/xiaomi/xiaomi.svg"
-      index={3}
-      isActive={currentIndex === 3}
-      src={{
-        mov: '/img/slider/xiaomi/xiaomi.mov',
-        mp4: '/img/slider/xiaomi/xiaomi.mp4',
-        webm: '/img/slider/xiaomi/xiaomi.webm',
-      }}
-    />,
-  ];
+  const items = useMemo(
+    () => [
+      // <ImageWrapper key="slide-0" index={0} src="/img/slider/1.png" />,
+      // <ImageWrapper key="slide-1" index={1} src="/img/slider/2.png" />,
+      // <ImageWrapper key="slide-2" index={2} src="/img/slider/3.png" />,
+      // <ImageWrapper key="slide-3" index={3} src="/img/slider/1.png" />,
+      // <ImageWrapper key="slide-4" index={4} src="/img/slider/1.png" />,
+      // <ImageWrapper key="slide-5" index={5} src="/img/slider/2.png" />,
+      // <ImageWrapper key="slide-6" index={6} src="/img/slider/3.png" />,
+      // <ImageWrapper key="slide-7" index={7} src="/img/slider/1.png" />,
+      <VideoWrapper
+        key="slide-0"
+        textSrc="/img/slider/logitech/logitech.svg"
+        index={0}
+        isActive={currentIndex === 0}
+        src={{
+          mov: '/img/slider/logitech/logitech.mov',
+          mp4: '/img/slider/logitech/logitech.mp4',
+          webm: '/img/slider/logitech/logitech.webm',
+        }}
+      />,
+      <VideoWrapper
+        key="slide-1"
+        textSrc="/img/slider/maxfactor/maxfactor.svg"
+        index={1}
+        isActive={currentIndex === 1}
+        src={{
+          mov: '/img/slider/maxfactor/maxfactor.mov',
+          mp4: '/img/slider/maxfactor/maxfactor.mp4',
+          webm: '/img/slider/maxfactor/maxfactor.webm',
+        }}
+      />,
+      <VideoWrapper
+        key="slide-2"
+        textSrc="/img/slider/spotify/spotify.svg"
+        index={2}
+        isActive={currentIndex === 2}
+        src={{
+          mov: '/img/slider/spotify/spotify.mov',
+          mp4: '/img/slider/spotify/spotify.mp4',
+          webm: '/img/slider/spotify/spotify.webm',
+        }}
+      />,
+      <VideoWrapper
+        key="slide-3"
+        textSrc="/img/slider/xiaomi/xiaomi.svg"
+        index={3}
+        isActive={currentIndex === 3}
+        src={{
+          mov: '/img/slider/xiaomi/xiaomi.mov',
+          mp4: '/img/slider/xiaomi/xiaomi.mp4',
+          webm: '/img/slider/xiaomi/xiaomi.webm',
+        }}
+      />,
+    ],
+    [currentIndex],
+  );
 
   return (
     <div className="w-screen relative overflow-hidden">

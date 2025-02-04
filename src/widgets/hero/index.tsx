@@ -1,6 +1,6 @@
 'use client';
 import type { FC } from 'react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -10,8 +10,24 @@ import Stats from './stats';
 import ContactManager from '../../features/contact-manager/contact-manager';
 
 const Hero: FC = () => {
+  const [fixedHeight, setFixedHeight] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const height = window.innerHeight;
+      setFixedHeight(height);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <div className="h-screen">
+    <div className={`h-[${fixedHeight}]`}>
       <Roles />
       <motion.div
         initial={{ scale: 1.2, opacity: 0 }}
@@ -23,7 +39,7 @@ const Hero: FC = () => {
           src={'/img/hero/kate.png'}
           height={3000}
           width={3000}
-          className="w-auto static md:absolute lg:static right-0 h-[63vh] lg:h-[70vh] sm:h-[68.2vh] md:h-screen mx-auto xl:h-screen xl:absolute"
+          className={`w-auto static md:absolute lg:static right-0 h-[63vh] lg:h-[70vh] sm:h-[68.2vh] md:h-[${fixedHeight}] mx-auto xl:h-[${fixedHeight}] xl:absolute`}
         />
         {/* <Image
           alt=""
