@@ -4,11 +4,11 @@ import Hero from '@/src/widgets/hero';
 import About from '@/src/widgets/about';
 import SocialList from '@/src/widgets/social-list/social-list';
 import PopularityList from '@/src/widgets/popularity/popularity-list';
-import Content from '@/src/widgets/content/content';
 import Collaborated from '@/src/widgets/collaborated/collaborated';
 import Slider from '@/src/widgets/slider/slider';
 import Request from '@/src/widgets/request/request';
 import Footer from '@/src/widgets/footer/footer';
+import Contentsss from '@/src/widgets/content/contentsss';
 
 const Home: FC = () => {
   return (
@@ -24,7 +24,7 @@ const Home: FC = () => {
       <div className="px-[20px]">
         <PopularityList />
       </div>
-      <Content />
+      <Contentsss />
       <Collaborated />
       <Slider />
       <div className="px-[20px] xl:px-[0px]">

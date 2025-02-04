@@ -3,7 +3,7 @@ import React from 'react';
 
 import Carousel from './carousel';
 
-const Content: FC = () => {
+const Contentsss: FC = () => {
   return (
     <div className="flex flex-col">
       <div className="flex flex-col gap-[8px] px-[20px] xl:items-center xl:flex-row xl:gap-[200px] 2xl:gap-[500px] 3xl:gap-[600px]">
@@ -20,4 +20,4 @@ const Content: FC = () => {
   );
 };
 
-export default Content;
+export default Contentsss;
