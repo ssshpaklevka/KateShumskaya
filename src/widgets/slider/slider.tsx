@@ -130,7 +130,7 @@ const Slider: FC = () => {
     textSrc,
   }: {
     index: number;
-    src: string;
+    src: { mov: string; mp4: string; webm: string };
     isActive: boolean;
     textSrc: string;
   }) => {
@@ -149,7 +149,7 @@ const Slider: FC = () => {
           videoRef.current.currentTime = 0;
         }
       }
-    }, [isActive]);
+    }, [isActive]); // Теперь зависим только от isActive
 
     return (
       <motion.div
@@ -165,9 +165,12 @@ const Slider: FC = () => {
           playsInline
           muted
           loop
-          src={src}
           className="w-[210px] h-[329px] sm:w-[350px] sm:h-[550px] md:w-[350px] md:h-[550px] lg:w-[474px] lg:h-[744px] xl:w-[589px] xl:h-[925px] 2xl:w-[460px] 2xl:h-[720px] 3xl:w-[574px] 3xl:h-[900px] object-cover"
-        ></video>
+        >
+          <source src={src.mov} type="video/quicktime" />
+          <source src={src.mp4} type="video/mp4" />
+          <source src={src.webm} type="video/webm" />
+        </video>
 
         {isActive && (
           <motion.div
@@ -203,28 +206,44 @@ const Slider: FC = () => {
       textSrc="/img/slider/logitech/logitech.svg"
       index={0}
       isActive={currentIndex === 0}
-      src={'/img/slider/logitech/logitech.mp4'}
+      src={{
+        mov: '/img/slider/logitech/logitech.mov',
+        mp4: '/img/slider/logitech/logitech.mp4',
+        webm: '/img/slider/logitech/logitech.webm',
+      }}
     />,
     <VideoWrapper
       key="slide-1"
       textSrc="/img/slider/maxfactor/maxfactor.svg"
       index={1}
       isActive={currentIndex === 1}
-      src={'/img/slider/maxfactor/maxfactor.mp4'}
+      src={{
+        mov: '/img/slider/maxfactor/maxfactor.mov',
+        mp4: '/img/slider/maxfactor/maxfactor.mp4',
+        webm: '/img/slider/maxfactor/maxfactor.webm',
+      }}
     />,
     <VideoWrapper
       key="slide-2"
       textSrc="/img/slider/spotify/spotify.svg"
       index={2}
       isActive={currentIndex === 2}
-      src={'/img/slider/spotify/spotify.mp4'}
+      src={{
+        mov: '/img/slider/spotify/spotify.mov',
+        mp4: '/img/slider/spotify/spotify.mp4',
+        webm: '/img/slider/spotify/spotify.webm',
+      }}
     />,
     <VideoWrapper
       key="slide-3"
       textSrc="/img/slider/xiaomi/xiaomi.svg"
       index={3}
       isActive={currentIndex === 3}
-      src={'/img/slider/xiaomi/xiaomi.mp4'}
+      src={{
+        mov: '/img/slider/xiaomi/xiaomi.mov',
+        mp4: '/img/slider/xiaomi/xiaomi.mp4',
+        webm: '/img/slider/xiaomi/xiaomi.webm',
+      }}
     />,
   ];
 
