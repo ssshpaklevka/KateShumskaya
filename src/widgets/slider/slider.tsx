@@ -1,47 +1,47 @@
 'use client';
 import Image from 'next/image';
 import type { FC } from 'react';
-import React, { useState, useContext, useEffect, useRef } from 'react';
-import { Carousel, CarouselContext } from 'react-responsive-3d-carousel';
+import React, { useState, useEffect, useRef } from 'react';
+import { Carousel } from 'react-responsive-3d-carousel';
 import { motion, AnimatePresence } from 'framer-motion';
 import 'react-responsive-3d-carousel/dist/styles.css';
 // import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-interface CustomArrowProps {
-  direction: 'left' | 'right';
-  onClick: () => void;
-}
-const CustomArrow: FC<CustomArrowProps> = ({ direction, onClick }) => (
-  <button onClick={onClick} className="focus:outline-none">
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-12 h-12"
-    >
-      <path
-        d={direction === 'left' ? 'M15 18l-6-6 6-6' : 'M9 18l6-6-6-6'}
-        stroke="white"
-        strokeWidth="1"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </button>
-);
+// interface CustomArrowProps {
+//   direction: 'left' | 'right';
+//   onClick: () => void;
+// }
+// const CustomArrow: FC<CustomArrowProps> = ({ direction, onClick }) => (
+//   <button onClick={onClick} className="focus:outline-none">
+//     <svg
+//       width="24"
+//       height="24"
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       xmlns="http://www.w3.org/2000/svg"
+//       className="w-12 h-12"
+//     >
+//       <path
+//         d={direction === 'left' ? 'M15 18l-6-6 6-6' : 'M9 18l6-6-6-6'}
+//         stroke="white"
+//         strokeWidth="1"
+//         strokeLinecap="round"
+//         strokeLinejoin="round"
+//       />
+//     </svg>
+//   </button>
+// );
 
-const SliderControls = () => {
-  const { slideNext, slidePrev } = useContext(CarouselContext);
+// const SliderControls = () => {
+//   const { slideNext, slidePrev } = useContext(CarouselContext);
 
-  return (
-    <div className="flex justify-center items-center gap-14 pb-14">
-      <CustomArrow direction="left" onClick={slidePrev} />
-      <CustomArrow direction="right" onClick={slideNext} />
-    </div>
-  );
-};
+//   return (
+//     <div className="flex justify-center items-center gap-14 pb-14">
+//       <CustomArrow direction="left" onClick={slidePrev} />
+//       <CustomArrow direction="right" onClick={slideNext} />
+//     </div>
+//   );
+// };
 
 const Slider: FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -255,7 +255,7 @@ const Slider: FC = () => {
             }}
           />
         </AnimatePresence>
-        <SliderControls />
+        {/* <SliderControls /> */}
       </div>
     </div>
   );
