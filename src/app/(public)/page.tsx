@@ -1,5 +1,4 @@
-'use client';
-import { useEffect, useState, type FC } from 'react';
+import type { FC } from 'react';
 
 import Hero from '@/src/widgets/hero';
 import About from '@/src/widgets/about';
@@ -12,28 +11,12 @@ import Footer from '@/src/widgets/footer/footer';
 import Contentsss from '@/src/widgets/content/contentsss';
 
 const Home: FC = () => {
-  const [fixedHeight, setFixedHeight] = useState(0);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const height = window.innerHeight; // Получаем высоту окна
-      setFixedHeight(height); // Устанавливаем фиксированное значение
-    };
-
-    handleResize(); // Устанавливаем высоту при первом рендере
-    window.addEventListener('resize', handleResize); // Добавляем обработчик события изменения размера
-
-    return () => {
-      window.removeEventListener('resize', handleResize); // Убираем обработчик при размонтировании
-    };
-  }, []);
-
   return (
-    <div className={`flex flex-col gap-[80px] min-h-[${fixedHeight}]`}>
-      <div className={`px-[20px] min-h-[${fixedHeight}]`}>
+    <div className="flex flex-col gap-[80px] min-h-screen">
+      <div className="px-[20px] min-h-screen">
         <Hero />
       </div>
-      <div className={`min-h-[${fixedHeight}] xl:mt-[80px]`}>
+      <div className="min-h-screen xl:mt-[80px]">
         <About />
       </div>
       <SocialList />

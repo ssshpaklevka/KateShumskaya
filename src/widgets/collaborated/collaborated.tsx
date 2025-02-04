@@ -1,27 +1,11 @@
 import type { FC } from 'react';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import CardsList from './cards-list';
 
 const Collaborated: FC = () => {
-  const [fixedHeight, setFixedHeight] = useState(0);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const height = window.innerHeight; // Получаем высоту окна
-      setFixedHeight(height); // Устанавливаем фиксированное значение
-    };
-
-    handleResize(); // Устанавливаем высоту при первом рендере
-    window.addEventListener('resize', handleResize); // Добавляем обработчик события изменения размера
-
-    return () => {
-      window.removeEventListener('resize', handleResize); // Убираем обработчик при размонтировании
-    };
-  }, []);
-
   return (
-    <div className={`flex flex-col min-h-[${fixedHeight}]`}>
+    <div className="flex flex-col min-h-screen">
       <div className="flex flex-col 2xl:flex-row 2xl:gap-[135px] 3xl:gap-[85px] gap-[8px] px-[20px] sm:gap-[30px]">
         <h2 className="uppercase text-[38px] leading-[38px] sm:text-[64px] sm:leading-[64px] lg:text-[86px] lg:leading-[86px] xl:text-[80px] xl:leading-[80px] 2xl:text-[72px] 2xl:leading-[72px] 3xl:text-[90px] 3xl:leading-[90px] font-normal">
           Collaborated
