@@ -8,13 +8,16 @@ const POPULARITY = [
   {
     number: 110,
     symbol: 'M',
-    description: (
-      <>
-        Views per
-        <br />
-        month
-      </>
-    ),
+    description: {
+      default: (
+        <>
+          Views per
+          <br />
+          month
+        </>
+      ),
+      desktop: 'Views per month',
+    },
     icon: Eye,
     subtitle: (
       <>
@@ -27,20 +30,23 @@ const POPULARITY = [
   {
     number: 17,
     symbol: '%',
-    description: (
-      <>
-        Average level of
-        <br />
-        engagement
-      </>
-    ),
+    description: {
+      default: (
+        <>
+          Average level of
+          <br />
+          engagement
+        </>
+      ),
+      desktop: 'Average level of engagement',
+    },
     icon: User,
     subtitle: <>Above industry average</>,
   },
 ];
 const PopularityList: FC = () => {
   return (
-    <div className="gap-[48px] flex flex-col">
+    <div className="gap-[48px] sm:gap-[80px] lg:gap-[118px] flex flex-col">
       {POPULARITY.map((item, index) => (
         <PopularityItem
           key={index}

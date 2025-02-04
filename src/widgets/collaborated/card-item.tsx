@@ -7,14 +7,16 @@ interface Props {
 const CardItem: FC<Props> = ({ image }) => {
   if (image === 'sponsor') {
     return (
-      <button className="hover:bg-white hover:border-white transition-all hover:text-black border border-white/15 !size-[45vw] flex justify-center items-center">
-        <p className="text-[10px] font-normal">Become a case</p>
+      <button className="hover:bg-white hover:border-white transition-all hover:text-black border border-white/15 size-[45vw] xl:size-[23vw] flex justify-center items-center">
+        <p className="text-[10px] sm:text-[16px] sm:leading-[22px] lg:text-[24px] lg:leading-[33px] 2xl:text-[16px] 2xl:leading-[22px] 3xl:text-[21px] 3xl:leading-[30px] font-normal">
+          Become a case
+        </p>
       </button>
     );
   }
 
   return (
-    <div className=" group hover:bg-white bg-white/5 border border-white/15 w-[45vw] h-[45vw] flex justify-center items-center transition-all">
+    <div className="group hover:bg-white bg-white/5 border border-white/15 w-[45vw] h-[45vw] xl:w-[23vw] xl:h-[23vw] flex justify-center items-center transition-all">
       <Image
         alt="logotype"
         src={`/img/collaborated/${image}.svg`}

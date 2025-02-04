@@ -1,1 +1,1 @@
-declare module 'react-simple-marquee'; 
+declare module 'react-simple-marquee';

@@ -27,14 +27,14 @@ const Home: FC = () => {
       <Content />
       <Collaborated />
       <Slider />
-      <div className="px-[20px]">
+      <div className="px-[20px] xl:px-[0px]">
         <Request />
       </div>
       <div className="flex flex-col">
         <div className="px-[20px]">
           <Footer />
         </div>
-        <div className="mt-[32px]">
+        <div className="mt-[32px] sm:mt-[51px] lg:mt-[78px] xl:mt-[104px] 2xl:mt-[64px] 3xl:mt-[82px]">
           <svg
             width="371"
             className="w-screen h-auto"

@@ -9,7 +9,8 @@ import { cn } from '@/src/shared/lib/utils';
 
 interface Props {
   network: string;
-  icon: FC;
+  iconBlack: FC;
+  iconWhite: FC;
   subscribers: string;
   link: string;
   symbol: string;
@@ -17,7 +18,8 @@ interface Props {
 }
 
 const SocialItem: FC<Props> = ({
-  icon: Icon,
+  iconBlack: IconBlack,
+  iconWhite: IconWhite,
   link,
   index,
   network,
@@ -30,21 +32,47 @@ const SocialItem: FC<Props> = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
+      className={cn('2xl:contents', index === 2 && '2xl:col-span-2')}
     >
-      <Link href={link} className="">
+      <Link
+        href={link}
+        className={cn(
+          'block',
+          index === 2 && '2xl:col-span-2',
+          '2xl:border-white 2xl:border-t 2xl:border-b',
+        )}
+      >
         <motion.div
           whileHover={{ scale: 0.98 }}
           transition={{ duration: 0.3 }}
           className={cn(
-            index == 2 && '2xl:col-span-1',
-            'text-black bg-white w-full 2xl:max-w-1/2 min-w-1/2 aspect-square 2xl:aspect-square xl:aspect-video justify-between flex flex-col border-b-[2px] border-b-black p-[20px] sm:p-[40px] lg:p-[60px] xl:p-[82px] ',
+            'group',
+
+            'text-black bg-white w-full min-w-1/2 aspect-square xl:aspect-video justify-between flex flex-col  p-[20px] sm:p-[40px] lg:p-[60px] xl:p-[82px]',
+
+            '2xl:h-full',
+            index === 2 && '2xl:h-[400px]',
+            index === 2 &&
+              '2xl:flex 2xl:flex-row 2xl:justify-between 2xl:items-center',
+
+            (index === 0 || index === 2) && [
+              '2xl:bg-black 2xl:text-white',
+              '2xl:hover:bg-white 2xl:hover:text-black',
+            ],
+            index === 1 && [
+              '2xl:bg-white 2xl:text-black',
+              '2xl:hover:bg-black 2xl:hover:text-white',
+            ],
           )}
         >
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="flex justify-between items-center"
+            className={cn(
+              'flex justify-between items-center',
+              index === 2 && 'gap-[60px] items-center',
+            )}
           >
             <motion.p
               initial={{ x: -20, opacity: 0 }}
@@ -59,12 +87,41 @@ const SocialItem: FC<Props> = ({
               animate={{ rotate: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              <Icon />
+              <div className="2xl:hidden">
+                <IconBlack />
+              </div>
+
+              <div className="hidden 2xl:block">
+                {index === 0 || index === 2 ? (
+                  <div className="group-hover:hidden">
+                    <IconWhite />
+                  </div>
+                ) : (
+                  <div className="group-hover:hidden">
+                    <IconBlack />
+                  </div>
+                )}
+
+                {index === 0 || index === 2 ? (
+                  <div className="hidden group-hover:block">
+                    <IconBlack />
+                  </div>
+                ) : (
+                  <div className="hidden group-hover:block">
+                    <IconWhite />
+                  </div>
+                )}
+              </div>
             </motion.div>
           </motion.div>
 
-          <div className="flex flex-col gap-[24px] lg:flex-row lg:justify-between lg:items-end max-w-[250px] sm:max-w-[415px] lg:max-w-[666px] xl:max-w-full">
-            <div className="flex flex-row justify-between items-end 2xl:flex-col">
+          <div className="flex flex-col gap-[24px] xl:flex-row xl:justify-between xl:items-end max-w-[250px] sm:max-w-[415px] lg:max-w-[666px] xl:max-w-full 2xl:gap-[60px]">
+            <div
+              className={cn(
+                'flex flex-row justify-between items-end 2xl:items-start 2xl:flex-col',
+                index === 2 && 'flex-row',
+              )}
+            >
               <motion.p
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -90,7 +147,7 @@ const SocialItem: FC<Props> = ({
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="mb-3 text-[10px] font-light sm:text-[16px] sm:leading-[22.5px] md:text-[16px] md:leading-[22.5px] xl:mb-0 ml-[60px] lg:text-[24px] lg:leading-[34px] xl:text-[24px] xl:leading-[34px] 2xl:text-[16px] 2xl:leading-[22.5px] 3xl:text-[21px] 3xl:leading-[30px] leading-[14px]  "
+                className="mb-3 text-[10px] font-light sm:text-[16px] sm:leading-[22.5px] md:text-[16px] md:leading-[22.5px] xl:mb-0 ml-[60px] lg:text-[24px] lg:leading-[34px] xl:text-[24px] xl:leading-[34px] 2xl:text-[16px] 2xl:leading-[22.5px] 2xl:ml-[0px] 2xl:mt-[12px] 3xl:text-[21px] 3xl:leading-[30px] leading-[14px]  "
               >
                 subscribers
               </motion.p>
@@ -111,7 +168,20 @@ const SocialItem: FC<Props> = ({
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
-                  className="bg-white border-black w-full xl:w-[30vw] 2xl:w-fit"
+                  className={cn(
+                    'bg-white border-black w-full xl:w-[30vw]',
+
+                    '2xl:w-fit 2xl:h-[40px]',
+
+                    (index === 0 || index === 2) && [
+                      '2xl:bg-black 2xl:text-white 2xl:border-white',
+                      '2xl:group-hover:bg-white 2xl:group-hover:text-black 2xl:group-hover:border-black',
+                    ],
+                    index === 1 && [
+                      '2xl:bg-white 2xl:text-black 2xl:border-black',
+                      '2xl:group-hover:bg-black 2xl:group-hover:text-white 2xl:group-hover:border-white',
+                    ],
+                  )}
                   variant={'outline'}
                 >
                   <motion.span

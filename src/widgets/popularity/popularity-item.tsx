@@ -5,10 +5,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
+import { cn } from '@/src/shared/lib/utils';
+
 interface Props {
   number: number;
   symbol: string;
-  description: React.JSX.Element;
+  description: {
+    default: React.JSX.Element;
+    desktop: string;
+  };
   icon: React.ForwardRefExoticComponent<
     Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
   >;
@@ -28,48 +33,110 @@ const PopularityItem: FC<Props> = ({
   });
 
   return (
-    <div ref={ref} className="flex flex-col gap-[5px]">
-      <motion.h3
-        initial={{ opacity: 0, x: 50 }}
-        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-        transition={{ duration: 0.3, delay: 0.7 }}
-        className="text-[94px] font-medium leading-[94px] tracking-[-3px]"
-      >
-        {number} <span className="font-light">{symbol}</span>
-      </motion.h3>
-
-      <div className="w-full flex items-center">
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          className="h-px bg-white w-full transform origin-right"
-        />
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="!w-[32px] !h-[32px] p-[6px] border border-white"
+    <div ref={ref}>
+      {/* до 2xl */}
+      <div className="flex flex-col gap-[5px] 2xl:hidden">
+        <motion.h3
+          initial={{ opacity: 0, x: 50 }}
+          animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+          transition={{ duration: 0.3, delay: 0.7 }}
+          className="text-[94px] leading-[94px] sm:text-[158px] sm:leading-[158px] lg:text-[206px] lg:leading-[206px] font-medium tracking-[-3px]"
         >
-          <div className="bg-white text-black !w-[18px] !h-[18px] p-[2px]">
-            <Icon className="w-[14px] h-[14px]" fill="black" stroke="white" />
-          </div>
+          {number} <span className="font-light">{symbol}</span>
+        </motion.h3>
+
+        <div className="w-full flex items-center">
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="h-px bg-white w-full transform origin-right"
+          />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="w-[32px] h-[32px] sm:w-[54px] sm:h-[54px] lg:w-[72px] lg:h-[72px] p-[6px] border border-white"
+          >
+            <div className="bg-white text-black w-[18px] h-[18px] sm:w-[40px] sm:h-[40px] lg:w-[58px] lg:h-[58px] p-[2px]">
+              <Icon
+                className="w-[14px] h-[14px] sm:w-[36px] sm:h-[36px] lg:w-[54px] lg:h-[54px]"
+                fill="black"
+                stroke="white"
+              />
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+          transition={{ duration: 0.3, delay: 0.5 }}
+          className="flex flex-row w-full justify-between items-end"
+        >
+          <p className="max-w-1/2 font-medium text-[24px] leading-[21px] sm:text-[48px] sm:leading-[43px] lg:text-[64px] lg:leading-[57px] text-wrap">
+            <span className="2xl:hidden">{description.default}</span>
+            <span className="hidden 2xl:inline">{description.desktop}</span>
+          </p>
+          <p className="max-w-1/2 font-light text-[10px] leading-[14px] sm:text-[16px] sm:leading-[22px] lg:text-[24px] lg:leading-[33px] text-wrap">
+            {subtitle}
+          </p>
         </motion.div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-        transition={{ duration: 0.3, delay: 0.5 }}
-        className="flex flex-row w-full justify-between items-end"
-      >
-        <p className="max-w-1/2 font-medium text-[24px] leading-[21px] text-wrap h-[45px]">
-          {description}
-        </p>
-        <p className="max-w-1/2 font-light text-[10px] leading-[14px] text-wrap">
-          {subtitle}
-        </p>
-      </motion.div>
+      {/* 2xl */}
+      <div className="hidden 2xl:flex 2xl:flex-col 2xl:h-full 2xl:gap-[20px]">
+        <div className="flex flex-row justify-between items-center">
+          <motion.h3
+            initial={{ opacity: 0, x: 50 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.3, delay: 0.7 }}
+            className={cn(
+              'text-[158px] leading-[158px] 3xl:text-[213px] 3xl:leading-[213px] font-medium tracking-[-3px]',
+              number === 17 ? 'ml-[20%]' : 'ml-[10%]',
+            )}
+          >
+            {number} <span className="font-light">{symbol}</span>
+          </motion.h3>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.3, delay: 0.5 }}
+            className="flex flex-col gap-[20px]"
+          >
+            <p className="font-medium text-[36px] leading-[50px] 3xl:text-[51px] 3xl:leading-[71px] text-wrap">
+              <span className="2xl:hidden">{description.default}</span>
+              <span className="hidden 2xl:inline">{description.desktop}</span>
+            </p>
+            <p className="font-light text-[16px] leading-[22px] 3xl:text-[28px] 3xl:leading-[39px] text-wrap mr-[410px]">
+              {subtitle}
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="w-full flex items-center">
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className={cn(
+              'h-px bg-white w-full transform origin-right',
+              number === 17 ? 'ml-[20%]' : 'ml-[10%]',
+            )}
+          />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="w-[72px] h-[72px] p-[6px] border border-white"
+          >
+            <div className="bg-white text-black w-[58px] h-[58px] p-[2px]">
+              <Icon className="w-[54px] h-[54px]" fill="black" stroke="white" />
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -4,26 +4,30 @@ import React from 'react';
 
 const Footer: FC = () => {
   return (
-    <div className="flex flex-col gap-[32px]">
+    <div className="flex flex-col gap-[66px] sm:gap-[112px] lg:gap-[146px] xl:gap-[132px] 2xl:gap-[112px]">
       <div className="flex flex-row">
-        <h3 className="text-[14px] font-light w-1/2">Social networks</h3>
-        <h3 className="text-[14px] font-light w-1/2">Contacts</h3>
+        <h3 className="text-[14px] sm:text-[24px] sm:leading-[33px] lg:text-[32px] lg:leading-[44px] xl:text-[36px] xl:leading-[50px] 2xl:text-[24px] 2xl:leading-[33px] font-light w-1/2">
+          Social networks
+        </h3>
+        <h3 className="text-[14px] sm:text-[24px] sm:leading-[33px] lg:text-[32px] lg:leading-[44px] xl:text-[36px] xl:leading-[50px] 2xl:text-[24px] 2xl:leading-[33px] font-light w-1/2">
+          Contacts
+        </h3>
       </div>
-      <div className="flex flex-row mt-[66px] text-[10px] leading-[14px] font-light">
-        <div className="w-1/2 flex flex-col gap-[18px]">
+      <div className="flex flex-row text-[10px] leading-[14px] sm:text-[16px] sm:leading-[22px] lg:text-[24px] lg:leading-[33px] xl:text-[24px] xl:leading-[33px] 2xl:text-[16px] 2xl:leading-[22px] font-light">
+        <div className="w-1/2 flex flex-col gap-[20px] sm:gap-[30px] lg:gap-[39px] xl:gap-[73px]">
           <div className="flex justify-between max-w-[96px]">
             <Link href={'#'}>Instagram</Link>
           </div>
-          <div className="flex justify-between w-[100px]">
+          <div className="flex justify-between w-[100px] sm:w-[160px] lg:w-[210px] xl:w-[260px]">
             <Link href={'#'}>TikTok</Link>
             <Link href={'#'}>Twitch</Link>
           </div>
-          <div className="flex justify-between w-[100px]">
+          <div className="flex justify-between w-[100px] sm:w-[160px] lg:w-[210px] xl:w-[260px]">
             <Link href={'#'}>YouTube</Link>
             <Link href={'#'}>X.com</Link>
           </div>
         </div>
-        <div className="flex flex-col gap-[18px]">
+        <div className="flex flex-col gap-[20px] sm:gap-[30px] lg:gap-[39px] xl:gap-[73px]">
           <div className="invisible flex justify-between max-w-[96px]">
             <Link href={'#'}>ks@shumskayakate.com</Link>
           </div>{' '}

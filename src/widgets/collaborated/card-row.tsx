@@ -4,10 +4,12 @@ import React from 'react';
 import { cn } from '@/src/shared/lib/utils';
 
 import CardItem from './card-item';
+
 interface Props {
   direction: 'right' | 'left';
   items: string[];
 }
+
 const CardRow: FC<Props> = ({ direction, items }) => {
   return (
     <div

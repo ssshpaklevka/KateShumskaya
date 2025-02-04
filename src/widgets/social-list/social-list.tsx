@@ -2,29 +2,35 @@
 import type { FC } from 'react';
 import React from 'react';
 
-import Tiktok from './icons/tiktok';
 import SocialItem from './social-item';
-import Instagram from './icons/instagram';
-import Youtube from './icons/youtube';
+import Youtubeb from './icons/youtubeb';
+import Youtubew from './icons/youtubew';
+import Instagramw from './icons/instagramw';
+import Instagramb from './icons/instagramb';
+import Tiktokw from './icons/tiktokw';
+import Tiktokb from './icons/tiktokb';
 
 const SOCIAL_NETWORKS = [
   {
     network: 'TikTok',
-    icon: Tiktok,
+    iconBlack: Tiktokb,
+    iconWhite: Tiktokw,
     symbol: 'M',
     subscribers: '12',
     link: 'https://instagram.com/',
   },
   {
     network: 'Instagram',
-    icon: Instagram,
+    iconBlack: Instagramb,
+    iconWhite: Instagramw,
     subscribers: '2.5',
     symbol: 'M',
     link: 'https://instagram.com/',
   },
   {
     network: 'YouTube',
-    icon: Youtube,
+    iconBlack: Youtubeb,
+    iconWhite: Youtubew,
     symbol: 'K',
     subscribers: '19',
     link: 'https://instagram.com/',
@@ -33,12 +39,13 @@ const SOCIAL_NETWORKS = [
 
 const SocialList: FC = () => {
   return (
-    <div className="flex flex-col md:px-[63px] 2xl:px-0 2xl:grid grid-cols-2">
+    <div className="flex flex-col gap-[1px] md:px-[63px] lg:px-[0px] xl:px-[63px] 2xl:px-0 2xl:grid grid-cols-2">
       {SOCIAL_NETWORKS.map((item, index) => (
         <SocialItem
           index={index}
           key={index}
-          icon={item.icon}
+          iconBlack={item.iconBlack}
+          iconWhite={item.iconWhite}
           link={item.link}
           network={item.network}
           subscribers={item.subscribers}
