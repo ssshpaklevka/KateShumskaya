@@ -133,7 +133,7 @@ const Slider: FC = () => {
     textSrc,
   }: {
     index: number;
-    src: { mov: string; mp4: string; webm: string };
+    src: { hls: string; mp4: string; webm: string };
     isActive: boolean;
     textSrc: string;
   }) => {
@@ -205,7 +205,7 @@ const Slider: FC = () => {
             muted
             autoPlay
             loop
-            preload="metadata"
+            preload="auto"
             disablePictureInPicture
             className="w-full h-full object-cover"
             style={{
@@ -214,9 +214,9 @@ const Slider: FC = () => {
               display: isVideoLoaded ? 'block' : 'none',
             }}
           >
-            <source src={src.mp4} type="video/mp4" />
+            <source src={src.hls} type="video/m3u8" />
             <source src={src.webm} type="video/webm" />
-            <source src={src.mov} type="video/quicktime" />
+            <source src={src.mp4} type="video/mp4" />
           </video>
 
           {isActive && isVideoLoaded && (
@@ -256,9 +256,9 @@ const Slider: FC = () => {
       index={0}
       isActive={currentIndex === 0}
       src={{
-        mov: '/img/slider/logitech/logitech.mov',
-        mp4: '/img/slider/logitech/logitech.mp4',
-        webm: '/img/slider/logitech/logitech.webm',
+        hls: '/img/slider/logitech/logitech1.m3u8',
+        mp4: '/img/slider/logitech/logitech1.mp4',
+        webm: '/img/slider/logitech/logitech1.webm',
       }}
     />,
     <VideoWrapper
@@ -267,9 +267,9 @@ const Slider: FC = () => {
       index={1}
       isActive={currentIndex === 1}
       src={{
-        mov: '/img/slider/maxfactor/maxfactor.mov',
-        mp4: '/img/slider/maxfactor/maxfactor.mp4',
-        webm: '/img/slider/maxfactor/maxfactor.webm',
+        hls: '/img/slider/maxfactor/maxfactor1.m3u8',
+        mp4: '/img/slider/maxfactor/maxfactor1.mp4',
+        webm: '/img/slider/maxfactor/maxfactor1.webm',
       }}
     />,
     <VideoWrapper
@@ -278,9 +278,9 @@ const Slider: FC = () => {
       index={2}
       isActive={currentIndex === 2}
       src={{
-        mov: '/img/slider/spotify/spotify.mov',
-        mp4: '/img/slider/spotify/spotify.mp4',
-        webm: '/img/slider/spotify/spotify.webm',
+        hls: '/img/slider/spotify/spotify1.m3u8',
+        mp4: '/img/slider/spotify/spotify1.mp4',
+        webm: '/img/slider/spotify/spotify1.webm',
       }}
     />,
     <VideoWrapper
@@ -289,7 +289,7 @@ const Slider: FC = () => {
       index={3}
       isActive={currentIndex === 3}
       src={{
-        mov: '/img/slider/xiaomi/xiaomi.mov',
+        hls: '/img/slider/xiaomi/xiaomi.m3u8',
         mp4: '/img/slider/xiaomi/xiaomi.mp4',
         webm: '/img/slider/xiaomi/xiaomi.webm',
       }}
