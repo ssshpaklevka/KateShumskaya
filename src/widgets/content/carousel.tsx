@@ -50,7 +50,8 @@ const Carousel: FC = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div className="relative min-h-[280px] sm:min-h-[460px] md:min-h-[540px] lg:min-h-[720px] xl:min-h-[900px] 2xl:min-h-[590px] 3xl:min-h-[710px]  flex items-center justify-center">
+    //для род. блока, но тогда скроллу плохо min-h-[280px] sm:min-h-[460px] md:min-h-[540px] lg:min-h-[720px] xl:min-h-[900px] 2xl:min-h-[590px] 3xl:min-h-[710px]  flex items-center justify-center
+    <div className="relative ">
       <CustomCursor isVisible={isHovering} text="look" />
 
       {/* Градиенты */}

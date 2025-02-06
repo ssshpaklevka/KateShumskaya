@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-undef */
+/* eslint-disable no-console */
 'use client';
 import Image from 'next/image';
 import type { FC } from 'react';
@@ -135,69 +138,106 @@ const Slider: FC = () => {
     textSrc: string;
   }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
     useEffect(() => {
       const videoElement = videoRef.current;
-      if (videoElement) {
-        // Предзагрузка видео
-        videoElement.preload = 'auto';
+      if (!videoElement) return;
 
+      const handleCanPlay = () => {
+        setIsVideoLoaded(true);
+      };
+
+      const handleError = (error: any) => {
+        console.error('Video loading error:', error);
+        setIsVideoLoaded(false);
+      };
+
+      videoElement.addEventListener('canplay', handleCanPlay);
+      videoElement.addEventListener('error', handleError);
+
+      // Принудительная предзагрузка
+      videoElement.preload = 'auto';
+
+      return () => {
+        videoElement.removeEventListener('canplay', handleCanPlay);
+        videoElement.removeEventListener('error', handleError);
+      };
+    }, [src]);
+
+    useEffect(() => {
+      const videoElement = videoRef.current;
+      if (!videoElement || !isVideoLoaded) return;
+
+      try {
         if (isActive) {
-          // Используем более надежный метод воспроизведения
-          const playPromise = videoElement.play();
-          if (playPromise !== undefined) {
-            playPromise.catch((error) => {
-              return error;
-            });
-          }
+          videoElement.play().catch((error) => {
+            return error;
+          });
         } else {
           videoElement.pause();
           videoElement.currentTime = 0;
         }
+      } catch (error) {
+        console.error('Video interaction error:', error);
       }
-    }, [isActive]);
+    }, [isActive, isVideoLoaded]);
 
     return (
-      <motion.div
-        initial={{ filter: 'grayscale(100%)' }}
-        animate={{
-          filter: isActive ? 'grayscale(0%)' : 'grayscale(100%)',
+      <div
+        className="relative w-full h-full"
+        style={{
+          opacity: isVideoLoaded ? 1 : 0,
+          transition: 'opacity 0.3s ease-in-out',
         }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
-        className="w-full h-full"
       >
-        <video
-          ref={videoRef}
-          playsInline
-          muted
-          preload="auto" // Добавлен атрибут preload
-          className="w-[210px] h-[329px] sm:w-[350px] sm:h-[550px] md:w-[350px] md:h-[550px] lg:w-[474px] lg:h-[744px] xl:w-[589px] xl:h-[925px] 2xl:w-[460px] 2xl:h-[720px] 3xl:w-[574px] 3xl:h-[900px] object-cover"
+        <motion.div
+          initial={{ filter: 'grayscale(100%)' }}
+          animate={{
+            filter: isActive ? 'grayscale(0%)' : 'grayscale(100%)',
+          }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          className="w-full h-full"
         >
-          {/* Порядок источников важен для совместимости */}
-          <source src={src.mp4} type="video/mp4" />
-          <source src={src.webm} type="video/webm" />
-          <source src={src.mov} type="video/quicktime" />
-        </video>
-
-        {isActive && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.3 }}
-            className="absolute inset-0 mb-[30px] flex items-end justify-center"
+          <video
+            ref={videoRef}
+            playsInline
+            muted
+            autoPlay
+            loop
+            preload="metadata"
+            disablePictureInPicture
+            className="w-full h-full object-cover"
+            style={{
+              width: '100%',
+              height: '100%',
+              display: isVideoLoaded ? 'block' : 'none',
+            }}
           >
-            <Image
-              alt="Brand logo"
-              width={200}
-              height={90}
-              src={textSrc}
-              // Добавьте loading="lazy" для отложенной загрузки
-              loading="lazy"
-              className="w-[110px] h-[50px] sm:w-[200px] sm:h-[40px] lg:w-[272px] lg:h-[60px] xl:w-[338px] xl:h-[80px] 2xl:w-[200px] 2xl:h-[40px] 3xl:w-[250px] 3xl:h-[60px]"
-            />
-          </motion.div>
-        )}
-      </motion.div>
+            <source src={src.mp4} type="video/mp4" />
+            <source src={src.webm} type="video/webm" />
+            <source src={src.mov} type="video/quicktime" />
+          </video>
+
+          {isActive && isVideoLoaded && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.3 }}
+              className="absolute inset-0 mb-[30px] flex items-end justify-center"
+            >
+              <Image
+                alt="Brand logo"
+                width={200}
+                height={90}
+                src={textSrc}
+                loading="lazy"
+                className="w-[110px] h-[50px] sm:w-[200px] sm:h-[40px] lg:w-[272px] lg:h-[60px] xl:w-[338px] xl:h-[80px] 2xl:w-[200px] 2xl:h-[40px] 3xl:w-[250px] 3xl:h-[60px]"
+              />
+            </motion.div>
+          )}
+        </motion.div>
+      </div>
     );
   };
 

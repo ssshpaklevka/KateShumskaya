@@ -46,7 +46,7 @@ const POPULARITY = [
 ];
 const PopularityList: FC = () => {
   return (
-    <div className="gap-[48px] sm:gap-[80px] lg:gap-[118px] flex flex-col">
+    <div className="gap-[48px] sm:gap-[80px] lg:gap-[118px] flex flex-col overflow-hidden">
       {POPULARITY.map((item, index) => (
         <PopularityItem
           key={index}

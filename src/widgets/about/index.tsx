@@ -40,7 +40,7 @@ const About: FC = () => {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className="relative h-screen"
+      className="relative h-screen overflow-hidden"
     >
       <motion.div
         initial={{ scale: 1.2, opacity: 0 }}
