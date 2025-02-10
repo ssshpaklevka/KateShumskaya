@@ -47,22 +47,23 @@ const SocialItem: FC<Props> = ({
           transition={{ duration: 0.3 }}
           className={cn(
             'group',
-
-            'text-black bg-white w-full min-w-1/2 aspect-square xl:aspect-video justify-between flex flex-col  p-[20px] sm:p-[40px] lg:p-[60px] xl:p-[82px]',
-
-            '2xl:h-full',
+            'text-black bg-white w-full min-w-1/2 aspect-square xl:aspect-video justify-between flex flex-col p-[20px] sm:p-[40px] lg:p-[60px] xl:p-[82px]',
+            'h-[378px]',
+            'sm:h-[634px]',
+            'lg:h-[1014px]',
+            'xl:h-[633px] 2xl:h-[758px] 3xl:h-[1019px]',
             index === 2 && '2xl:h-[400px]',
             index === 2 &&
               '2xl:flex 2xl:flex-row 2xl:justify-between 2xl:items-center',
-
-            (index === 0 || index === 2) && [
-              '2xl:bg-black 2xl:text-white',
+            // TikTok - меняет цвет блока при наведении
+            index === 0 && [
+              '2xl:bg-black 2xl:text-white ',
               '2xl:hover:bg-white 2xl:hover:text-black',
             ],
-            index === 1 && [
-              '2xl:bg-white 2xl:text-black',
-              '2xl:hover:bg-black 2xl:hover:text-white',
-            ],
+            // Instagram - всегда белый
+            index === 1 && '2xl:bg-white 2xl:text-black',
+            // YouTube - всегда черный
+            index === 2 && '2xl:bg-black 2xl:text-white',
           )}
         >
           <motion.div
@@ -92,24 +93,29 @@ const SocialItem: FC<Props> = ({
               </div>
 
               <div className="hidden 2xl:block">
-                {index === 0 || index === 2 ? (
-                  <div className="group-hover:hidden">
-                    <IconWhite />
-                  </div>
+                {index === 0 ? (
+                  // TikTok - иконка меняется вместе с блоком
+                  <>
+                    <div className="group-hover:hidden">
+                      <IconWhite />
+                    </div>
+                    <div className="hidden group-hover:block">
+                      <IconBlack />
+                    </div>
+                  </>
+                ) : index === 1 ? (
+                  // Instagram - всегда черная, меняется на белую при наведении
+                  <>
+                    <div className="group-hover:hidden">
+                      <IconBlack />
+                    </div>
+                    <div className="hidden group-hover:block">
+                      <IconWhite />
+                    </div>
+                  </>
                 ) : (
-                  <div className="group-hover:hidden">
-                    <IconBlack />
-                  </div>
-                )}
-
-                {index === 0 || index === 2 ? (
-                  <div className="hidden group-hover:block">
-                    <IconBlack />
-                  </div>
-                ) : (
-                  <div className="hidden group-hover:block">
-                    <IconWhite />
-                  </div>
+                  // YouTube - всегда белая
+                  <IconWhite />
                 )}
               </div>
             </motion.div>
@@ -170,16 +176,21 @@ const SocialItem: FC<Props> = ({
                 <Button
                   className={cn(
                     'bg-white border-black w-full xl:w-[30vw]',
-
                     '2xl:w-fit 2xl:h-[40px]',
-
-                    (index === 0 || index === 2) && [
+                    // TikTok
+                    index === 0 && [
                       '2xl:bg-black 2xl:text-white 2xl:border-white',
                       '2xl:group-hover:bg-white 2xl:group-hover:text-black 2xl:group-hover:border-black',
                     ],
+                    // Instagram
                     index === 1 && [
                       '2xl:bg-white 2xl:text-black 2xl:border-black',
                       '2xl:group-hover:bg-black 2xl:group-hover:text-white 2xl:group-hover:border-white',
+                    ],
+                    // YouTube
+                    index === 2 && [
+                      '2xl:bg-black 2xl:text-white 2xl:border-white',
+                      '2xl:group-hover:bg-white 2xl:group-hover:text-black 2xl:group-hover:border-black',
                     ],
                   )}
                   variant={'outline'}

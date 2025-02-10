@@ -32,9 +32,10 @@ const Carousel: FC = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    //для род. блока, но тогда скроллу плохо min-h-[280px] sm:min-h-[460px] md:min-h-[540px] lg:min-h-[720px] xl:min-h-[900px] 2xl:min-h-[590px] 3xl:min-h-[710px]  flex items-center justify-center
-    <Link href={'#'}>
-      <div className="relative ">
+    <Link
+      href={'https://www.instagram.com/mimisskate?igsh=MTlldzF1ejZ3MW5mdw=='}
+    >
+      <div className="relative min-h-[280px] sm:min-h-[460px] md:min-h-[540px] lg:min-h-[720px] xl:min-h-[900px] 2xl:min-h-[590px] 3xl:min-h-[710px]  flex items-center justify-center">
         <CustomCursor isVisible={isHovering} text="look" />
 
         {/* Градиенты */}
@@ -47,11 +48,12 @@ const Carousel: FC = () => {
             marginTop: '10px',
           }}
           velocity={0.05}
+          speed={0.8}
         >
           {[...CONTENT, ...CONTENT].map((item, index) => (
             <div
               key={index}
-              className="relative group"
+              className="relative group mr-[6px] sm:mr-[10px] md:mr-[12px] lg:mr-[16px] xl:mr-[20px] 2xl:mr-[16px] 3xl:mr-[20px]"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
               style={{ cursor: 'none' }}

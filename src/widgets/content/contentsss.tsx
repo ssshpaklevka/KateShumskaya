@@ -5,7 +5,7 @@ import Carousel from './carousel';
 
 const Contentsss: FC = () => {
   return (
-    <div className="flex flex-col gap-[60px] md:gap-[70px] lg:gap-[90px] xl:gap-[80px] 2xl:gap-[56px] 3xl:gap-[72px]">
+    <div className="flex flex-col gap-[60px] md:gap-[70px] lg:gap-[90px] xl:gap-[80px] 2xl:gap-[56px] 3xl:gap-[72px] ">
       <div className="flex flex-col gap-[8px] px-[20px] xl:items-center xl:flex-row xl:gap-[200px] 2xl:gap-[500px] 3xl:gap-[600px]">
         <h2 className="uppercase text-[38px] leading-[38px] sm:text-[64px] sm:leading-[64px] lg:text-[100px] lg:leading-[100px] xl:text-[80px] xl:leading-[80px] 2xl:text-[72px] 2xl:leading-[72px] 3xl:text-[90px] 3xl:leading-[90px] font-normal">
           Content

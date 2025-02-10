@@ -22,7 +22,7 @@ const CardItem: FC<Props> = ({ image }) => {
         src={`/img/collaborated/${image}.svg`}
         width={3000}
         height={3000}
-        className="w-[100px] h-auto transition-all group-hover:invert"
+        className="w-[120px] sm:w-[160px] md:w-[200px] lg:w-[240px] xl:w-[210px] 2xl:w-[250px] 3xl:w-[290px] h-auto transition-all group-hover:invert"
       />
     </div>
   );

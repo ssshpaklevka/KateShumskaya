@@ -17,7 +17,7 @@ const SOCIAL_NETWORKS = [
     iconWhite: Tiktokw,
     symbol: 'M',
     subscribers: '12',
-    link: 'https://instagram.com/',
+    link: 'https://www.tiktok.com/@mimisskate?_t=8sISTOjNIQb&_r=1',
   },
   {
     network: 'Instagram',
@@ -25,7 +25,7 @@ const SOCIAL_NETWORKS = [
     iconWhite: Instagramw,
     subscribers: '2.5',
     symbol: 'M',
-    link: 'https://instagram.com/',
+    link: 'https://www.instagram.com/mimisskate?igsh=MTlldzF1ejZ3MW5mdw==',
   },
   {
     network: 'YouTube',
@@ -33,7 +33,7 @@ const SOCIAL_NETWORKS = [
     iconWhite: Youtubew,
     symbol: 'K',
     subscribers: '19',
-    link: 'https://instagram.com/',
+    link: 'https://youtube.com/@mimisskate?si=gX-RclY80vZzhYwx',
   },
 ];
 
