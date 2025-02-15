@@ -5,7 +5,6 @@ import About from '@/src/widgets/about';
 import SocialList from '@/src/widgets/social-list/social-list';
 import PopularityList from '@/src/widgets/popularity/popularity-list';
 import Collaborated from '@/src/widgets/collaborated/collaborated';
-import Slider from '@/src/widgets/slider/slider';
 import Request from '@/src/widgets/request/request';
 import Footer from '@/src/widgets/footer/footer';
 import Contentsss from '@/src/widgets/content/contentsss';
@@ -26,7 +25,7 @@ const Home: FC = () => {
       </div>
       <Contentsss />
       <Collaborated />
-      <Slider />
+      {/* <Slider /> */}
       <div className="px-[20px] xl:px-[0px]">
         <Request />
       </div>

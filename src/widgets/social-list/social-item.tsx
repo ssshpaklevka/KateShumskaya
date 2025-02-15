@@ -39,7 +39,7 @@ const SocialItem: FC<Props> = ({
         className={cn(
           'block',
           index === 2 && '2xl:col-span-2',
-          '2xl:border-white 2xl:border-t 2xl:border-b',
+          '2xl:border-white 2xl:border-t ',
         )}
       >
         <motion.div
@@ -55,15 +55,22 @@ const SocialItem: FC<Props> = ({
             index === 2 && '2xl:h-[400px]',
             index === 2 &&
               '2xl:flex 2xl:flex-row 2xl:justify-between 2xl:items-center',
-            // TikTok - меняет цвет блока при наведении
+            // TikTok - всегда черный
             index === 0 && [
-              '2xl:bg-black 2xl:text-white ',
-              '2xl:hover:bg-white 2xl:hover:text-black',
+              '2xl:bg-black 2xl:text-white',
+              '2xl:hover:bg-black 2xl:hover:text-white', // Блок всегда остается черным
             ],
             // Instagram - всегда белый
-            index === 1 && '2xl:bg-white 2xl:text-black',
+            index === 1 && [
+              '2xl:bg-white 2xl:text-black',
+              '2xl:hover:bg-white 2xl:hover:text-black', // Блок всегда остается белым
+            ],
             // YouTube - всегда черный
-            index === 2 && '2xl:bg-black 2xl:text-white',
+            index === 2 && [
+              '2xl:border-b 2xl:border-white',
+              '2xl:bg-black 2xl:text-white',
+              '2xl:hover:bg-black 2xl:hover:text-white', // Блок всегда остается черным
+            ],
           )}
         >
           <motion.div
@@ -94,27 +101,13 @@ const SocialItem: FC<Props> = ({
 
               <div className="hidden 2xl:block">
                 {index === 0 ? (
-                  // TikTok - иконка меняется вместе с блоком
-                  <>
-                    <div className="group-hover:hidden">
-                      <IconWhite />
-                    </div>
-                    <div className="hidden group-hover:block">
-                      <IconBlack />
-                    </div>
-                  </>
+                  // TikTok - всегда белая иконка
+                  <IconWhite />
                 ) : index === 1 ? (
-                  // Instagram - всегда черная, меняется на белую при наведении
-                  <>
-                    <div className="group-hover:hidden">
-                      <IconBlack />
-                    </div>
-                    <div className="hidden group-hover:block">
-                      <IconWhite />
-                    </div>
-                  </>
+                  // Instagram - всегда черная иконка
+                  <IconBlack />
                 ) : (
-                  // YouTube - всегда белая
+                  // YouTube - всегда белая иконка
                   <IconWhite />
                 )}
               </div>
@@ -184,8 +177,8 @@ const SocialItem: FC<Props> = ({
                     ],
                     // Instagram
                     index === 1 && [
-                      '2xl:bg-white 2xl:text-black 2xl:border-black',
-                      '2xl:group-hover:bg-black 2xl:group-hover:text-white 2xl:group-hover:border-white',
+                      '2xl:bg-black 2xl:text-white 2xl:border-white',
+                      '2xl:group-hover:bg-white 2xl:group-hover:text-black 2xl:group-hover:border-black',
                     ],
                     // YouTube
                     index === 2 && [

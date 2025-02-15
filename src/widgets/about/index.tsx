@@ -118,7 +118,7 @@ const About: FC = () => {
                 fill="none"
               />
               <text className="text-[11px] fill-white">
-                <textPath href="#circlePath">
+                <textPath href="#circlePath" letterSpacing="2" wordSpacing="2">
                   artist model influencer actress
                 </textPath>
               </text>
@@ -139,7 +139,7 @@ const About: FC = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
           transition={{ duration: 0.5, delay: 1 }}
-          className="w-full justify-end flex"
+          className="w-full justify-end xl:justify-center flex"
         >
           <p className="text-[10px] mr-[20px] font-light leading-[14px] lg:mr-0  mt-[40px] max-w-[245px] sm:text-[16px] sm:leading-[22.5px] md:text-[16px] md:leading-[22.5px] lg:text-[24px] lg:leading-[34px] xl:text-[24px] xl:leading-[34px] 2xl:text-[16px] 2xl:leading-[22.5px] 3xl:text-[21px] 3xl:leading-[30px] sm:max-w-[415px] md:max-w-[343px] lg:max-w-[609px] xl:max-w-[572px] 2xl:max-w-[344px] 3xl:max-w-[477px]">
             Katya became known around the world thanks to her striking
@@ -164,11 +164,11 @@ const About: FC = () => {
             ease: [0.76, 0, 0.24, 1],
           }}
           style={{ originX: 0.5 }}
-          className="mt-[42px]"
+          className="mt-[42px] md:flex md:justify-center md:ml-6 lg:block lg:ml-0 xl:flex xl:justify-center"
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
-              className="w-full md:w-[305px] lg:w-full"
+              className="w-full md:w-[305px] lg:w-full xl:w-[572px] 2xl:w-[344px] 3xl:w-[470px]"
               variant={'outline'}
             >
               Contact the manager

@@ -19,6 +19,28 @@ body {
   font-family: var(--font-helvetica-medium);
 }
 
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+@media (max-width: 1536px) {
+  .w-\[320px\] {
+    width: 280px;
+  }
+
+  .h-\[560px\] {
+    height: 490px;
+  }
+}
+
 @layer base {
   :root {
     --background: #010101;
