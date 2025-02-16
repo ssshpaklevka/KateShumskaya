@@ -1,7 +1,6 @@
 'use client';
 import type { FC } from 'react';
 import React from 'react';
-import { Eye, User } from 'lucide-react';
 
 import PopularityItem from './popularity-item';
 const POPULARITY = [
@@ -18,7 +17,6 @@ const POPULARITY = [
       ),
       desktop: 'Views per month',
     },
-    icon: Eye,
     subtitle: (
       <>
         That&apos;s 153 thousand views per
@@ -26,6 +24,7 @@ const POPULARITY = [
         hour or 2,546 views per minute
       </>
     ),
+    iconSrc: '/eyes.svg',
   },
   {
     number: 17,
@@ -40,8 +39,8 @@ const POPULARITY = [
       ),
       desktop: 'Average level of engagement',
     },
-    icon: User,
     subtitle: <>Above industry average</>,
+    iconSrc: '/people.svg',
   },
 ];
 const PopularityList: FC = () => {
@@ -50,10 +49,10 @@ const PopularityList: FC = () => {
       {POPULARITY.map((item, index) => (
         <PopularityItem
           key={index}
-          icon={item.icon}
           description={item.description}
           number={item.number}
           subtitle={item.subtitle}
+          iconSrc={item.iconSrc}
           symbol={item.symbol}
         />
       ))}

@@ -1,9 +1,9 @@
 'use client';
-import type { LucideProps } from 'lucide-react';
 import type { FC } from 'react';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Image from 'next/image';
 
 import { cn } from '@/src/shared/lib/utils';
 
@@ -14,18 +14,16 @@ interface Props {
     default: React.JSX.Element;
     desktop: string;
   };
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-  >;
   subtitle: React.JSX.Element;
+  iconSrc: string; // Добавьте это
 }
 
 const PopularityItem: FC<Props> = ({
   description,
-  icon: Icon,
   number,
   subtitle,
   symbol,
+  iconSrc,
 }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -35,7 +33,7 @@ const PopularityItem: FC<Props> = ({
   return (
     <div ref={ref}>
       {/* до 2xl */}
-      <div className="flex flex-col gap-[5px] 2xl:hidden">
+      <div className="flex flex-col gap-[5px] 2xl:hidden mb-[12px]">
         <motion.h3
           initial={{ opacity: 0, x: 50 }}
           animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
@@ -59,10 +57,12 @@ const PopularityItem: FC<Props> = ({
             className="w-[32px] h-[32px] sm:w-[54px] sm:h-[54px] lg:w-[72px] lg:h-[72px] p-[6px] border border-white"
           >
             <div className="bg-white text-black w-[18px] h-[18px] sm:w-[40px] sm:h-[40px] lg:w-[58px] lg:h-[58px] p-[2px]">
-              <Icon
+              <Image
                 className="w-[14px] h-[14px] sm:w-[36px] sm:h-[36px] lg:w-[54px] lg:h-[54px]"
-                fill="black"
-                stroke="white"
+                src={iconSrc}
+                alt="icon"
+                width={20}
+                height={20}
               />
             </div>
           </motion.div>
@@ -132,7 +132,14 @@ const PopularityItem: FC<Props> = ({
             className="w-[72px] h-[72px] p-[6px] border border-white"
           >
             <div className="bg-white text-black w-[58px] h-[58px] p-[2px]">
-              <Icon className="w-[54px] h-[54px]" fill="black" stroke="white" />
+              {/* <Icon className="w-[54px] h-[54px]" fill="black" stroke="white" /> */}
+              <Image
+                className="w-[54px] h-[54px]"
+                src={iconSrc}
+                alt="icon"
+                width={20}
+                height={20}
+              />
             </div>
           </motion.div>
         </div>
