@@ -104,7 +104,93 @@ const Slider: FC = () => {
     setTouchStart(0);
     setTouchEnd(0);
   };
+  const getSlideStyles = (distance: number) => {
+    const isActive = distance === 0;
+    const isFirstSide = Math.abs(distance) === 1;
+    const isSecondSide = Math.abs(distance) === 2;
 
+    let width, height;
+
+    // Обновленные размеры с учетом мобильных устройств
+    if (isActive) {
+      width = 'w-[350px] lg:w-[473px] xl:w-[588px] 2xl:w-[460px] 3xl:w-[574px]';
+      height =
+        'h-[550px] lg:h-[743px] xl:h-[924px] 2xl:h-[720px] 3xl:h-[900px]';
+    } else if (isFirstSide) {
+      // Увеличены размеры для мобильных устройств
+      width = 'w-[280px] lg:w-[378px] xl:w-[470px] 2xl:w-[368px] 3xl:w-[460px]';
+      height =
+        'h-[440px] lg:h-[594px] xl:h-[739px] 2xl:h-[576px] 3xl:h-[720px]';
+    } else if (isSecondSide) {
+      // Увеличены размеры для мобильных устройств
+      width = 'w-[230px] lg:w-[310px] xl:w-[386px] 2xl:w-[302px] 3xl:w-[378px]';
+      height =
+        'h-[361px] lg:h-[487px] xl:h-[607px] 2xl:h-[474px] 3xl:h-[592px]';
+    }
+
+    // Обновленные отступы с учетом мобильных устройств
+    let spacing;
+    if (windowWidth >= 1536) {
+      // 2xl и выше
+      spacing = 60;
+    } else if (windowWidth >= 1280) {
+      // xl
+      spacing = 50;
+    } else if (windowWidth >= 1024) {
+      // lg
+      spacing = 40;
+    } else if (windowWidth >= 768) {
+      // md
+      spacing = 30;
+    } else if (windowWidth >= 640) {
+      // sm
+      spacing = 25;
+    } else {
+      // xs
+      spacing = 20;
+    }
+
+    // Расчет translateX с учетом размеров экрана
+    let translateX;
+    if (windowWidth >= 1536) {
+      // 2xl и выше
+      translateX = distance * 400;
+    } else if (windowWidth >= 1280) {
+      // xl
+      translateX = distance * 350;
+    } else if (windowWidth >= 1024) {
+      // lg
+      translateX = distance * 300;
+    } else if (windowWidth >= 768) {
+      // md
+      translateX = distance * 250;
+    } else if (windowWidth >= 640) {
+      // sm
+      translateX = distance * 200;
+    } else {
+      // xs
+      translateX = distance * 180;
+    }
+
+    // Добавляем дополнительный отступ
+    translateX += distance * spacing;
+
+    return {
+      width,
+      height,
+      translateX,
+    };
+  };
+
+  // В компоненте также добавим обработку изменения размера экрана
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   return (
     <div>
       <div
@@ -123,17 +209,15 @@ const Slider: FC = () => {
               const distance = index - currentIndex;
               const isActive = index === currentIndex;
               const translateX = distance * (windowWidth >= 1536 ? 305 : 346);
+              const styles = getSlideStyles(distance);
 
               return (
                 <div
                   key={`${index}-${data[realIndex].alt}`}
                   className={cn(
                     'absolute transition-all duration-500 cursor-pointer rounded-lg overflow-hidden',
-                    'w-[350px] h-[550px]',
-                    'lg:w-[473px] lg:h-[743px]',
-                    'xl:w-[588px] xl:h-[924px]',
-                    '2xl:w-[460px] 2xl:h-[720px]',
-                    '3xl:w-[574px] 3xl:h-[900px]',
+                    styles.width,
+                    styles.height,
                   )}
                   style={{
                     transform: `translateX(${translateX}px) scale(${isActive ? 1 : 0.8}) rotateY(${isActive ? 0 : distance * -15}deg)`,

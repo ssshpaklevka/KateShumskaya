@@ -37,7 +37,13 @@ const POPULARITY = [
           engagement
         </>
       ),
-      desktop: 'Average level of engagement',
+      desktop: (
+        <>
+          Average level
+          <br />
+          of engagement
+        </>
+      ),
     },
     subtitle: <>Above industry average</>,
     iconSrc: '/people.svg',

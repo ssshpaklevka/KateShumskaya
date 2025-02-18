@@ -12,7 +12,7 @@ interface Props {
   symbol: string;
   description: {
     default: React.JSX.Element;
-    desktop: string;
+    desktop: string | React.JSX.Element;
   };
   subtitle: React.JSX.Element;
   iconSrc: string; // Добавьте это
@@ -56,9 +56,9 @@ const PopularityItem: FC<Props> = ({
             transition={{ duration: 0.3 }}
             className="w-[32px] h-[32px] sm:w-[54px] sm:h-[54px] lg:w-[72px] lg:h-[72px] p-[6px] border border-white"
           >
-            <div className="bg-white text-black w-[18px] h-[18px] sm:w-[40px] sm:h-[40px] lg:w-[58px] lg:h-[58px] p-[2px]">
+            <div className="bg-white text-black w-[18px] h-[18px] sm:w-[40px] sm:h-[40px] lg:w-[58px] lg:h-[58px] p-[2px] flex items-center justify-center">
               <Image
-                className="w-[14px] h-[14px] sm:w-[36px] sm:h-[36px] lg:w-[54px] lg:h-[54px]"
+                className="w-[14px] h-[14px] sm:w-[26px] sm:h-[26px] lg:w-[34px] lg:h-[34px] 2xl:w-[26px] 2xl:h-[17px]"
                 src={iconSrc}
                 alt="icon"
                 width={20}
@@ -131,10 +131,10 @@ const PopularityItem: FC<Props> = ({
             transition={{ duration: 0.3 }}
             className="w-[72px] h-[72px] p-[6px] border border-white"
           >
-            <div className="bg-white text-black w-[58px] h-[58px] p-[2px]">
+            <div className="bg-white text-black w-[58px] h-[58px] p-[2px] flex items-center justify-center">
               {/* <Icon className="w-[54px] h-[54px]" fill="black" stroke="white" /> */}
               <Image
-                className="w-[54px] h-[54px]"
+                className="2xl:w-[34px] 2xl:h-[34px] 3xl:w-[44px] 3xl:h-[44px]"
                 src={iconSrc}
                 alt="icon"
                 width={20}

@@ -117,8 +117,11 @@ const About: FC = () => {
                 d="M 50,50 m -25,0 a 25,25 0 1,1 50,0 a 25,25 0 1,1 -50,0"
                 fill="none"
               />
-              <text className="text-[11px] fill-white">
-                <textPath href="#circlePath" letterSpacing="2" wordSpacing="2">
+              <text className="text-[11px] lg:text-[16px] xl:text-[19px] 2xl:text-[11px] 3xl:text-[16px] fill-white lowercase">
+                <textPath
+                  href="#circlePath"
+                  className="md:tracking-[3px] md:word-spacing-[4px] tracking-[2px] word-spacing-[2px]"
+                >
                   artist model influencer actress
                 </textPath>
               </text>

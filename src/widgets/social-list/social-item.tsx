@@ -67,6 +67,7 @@ const SocialItem: FC<Props> = ({
             ],
             // YouTube - всегда черный
             index === 2 && [
+              '2xl:h-[255px] 3xl:h-[344px]',
               '2xl:border-b 2xl:border-white',
               '2xl:bg-black 2xl:text-white',
               '2xl:hover:bg-black 2xl:hover:text-white', // Блок всегда остается черным

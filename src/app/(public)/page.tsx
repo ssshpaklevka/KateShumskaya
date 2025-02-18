@@ -21,7 +21,7 @@ const Home: FC = () => {
       </div>
       <SocialList />
 
-      <div className="px-[20px] 2xl:pt-[145px] 3xl:pt-[156px]">
+      <div className="px-[40px] lg:px-[60px] 2xl:px-[80px] 2xl:pt-[145px] 3xl:pt-[156px]">
         <PopularityList />
       </div>
       <Contentsss />

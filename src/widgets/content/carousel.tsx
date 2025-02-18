@@ -32,36 +32,39 @@ const Carousel: FC = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <Link
-      href={'https://www.instagram.com/mimisskate?igsh=MTlldzF1ejZ3MW5mdw=='}
-    >
-      <div className="relative min-h-[280px] sm:min-h-[460px] md:min-h-[540px] lg:min-h-[720px] xl:min-h-[900px] 2xl:min-h-[590px] 3xl:min-h-[710px]  flex items-center justify-center">
-        <CustomCursor isVisible={isHovering} text="look" />
+    <div className="relative min-h-[280px] sm:min-h-[460px] md:min-h-[540px] lg:min-h-[720px] xl:min-h-[900px] 2xl:min-h-[590px] 3xl:min-h-[710px]  flex items-center justify-center">
+      <CustomCursor isVisible={isHovering} text="look" />
 
-        {/* Градиенты */}
-        <div className="absolute left-0 top-0 h-full w-[50px] z-30 bg-gradient-to-r from-black to-transparent" />
-        <div className="absolute right-0 top-0 h-full w-[50px] z-30 bg-gradient-to-l from-black to-transparent" />
+      {/* Градиенты */}
+      <div className="absolute left-0 top-0 h-full w-[50px] z-30 bg-gradient-to-r from-black to-transparent" />
+      <div className="absolute right-0 top-0 h-full w-[50px] z-30 bg-gradient-to-l from-black to-transparent" />
 
-        <Marquee
-          className="mt-[10px] h-[260px] sm:h-[436px] md:h-[513px] lg:h-[698px] xl:h-[872px] 2xl:h-[547px] 3xl:h-[684px] flex flex-row items-center"
-          style={{
-            marginTop: '10px',
-          }}
-          velocity={0.05}
-          speed={0.8}
-        >
-          {[...CONTENT, ...CONTENT].map((item, index) => (
-            <div
-              key={index}
-              className="relative group mr-[6px] sm:mr-[10px] md:mr-[12px] lg:mr-[16px] xl:mr-[20px] 2xl:mr-[16px] 3xl:mr-[20px]"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-              style={{ cursor: 'none' }}
+      <Marquee
+        className="mt-[10px] h-[260px] sm:h-[436px] md:h-[513px] lg:h-[698px] xl:h-[872px] 2xl:h-[547px] 3xl:h-[684px] flex flex-row items-center"
+        style={{
+          marginTop: '10px',
+        }}
+        velocity={0.05}
+        speed={0.8}
+      >
+        {[...CONTENT, ...CONTENT].map((item, index) => (
+          <div
+            key={index}
+            className="relative group mr-[6px] sm:mr-[10px] md:mr-[12px] lg:mr-[16px] xl:mr-[20px] 2xl:mr-[16px] 3xl:mr-[20px]"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+            style={{ cursor: 'none' }}
+          >
+            {/* Невидимая область для ховера */}
+            <div className="absolute h-[260px] w-[162px] sm:h-[436px] sm:w-[270px] md:h-[513px] md:w-[318px] lg:h-[698px] lg:w-[432px] xl:h-[872px] xl:w-[540px] 2xl:h-[547px] 2xl:w-[340px] 3xl:h-[684px] 3xl:w-[424px] z-20" />
+
+            {/* Изображение с grayscale */}
+            <Link
+              href={
+                'https://www.instagram.com/mimisskate?igsh=MTlldzF1ejZ3MW5mdw=='
+              }
+              style={{ cursor: isHovering ? 'none' : 'pointer' }}
             >
-              {/* Невидимая область для ховера */}
-              <div className="absolute h-[260px] w-[162px] sm:h-[436px] sm:w-[270px] md:h-[513px] md:w-[318px] lg:h-[698px] lg:w-[432px] xl:h-[872px] xl:w-[540px] 2xl:h-[547px] 2xl:w-[340px] 3xl:h-[684px] 3xl:w-[424px] z-20" />
-
-              {/* Изображение с grayscale */}
               <div
                 className="h-[112px] w-[75px] sm:h-[186px] sm:w-[125px] md:h-[220px] md:w-[147px] lg:h-[298px] lg:w-[200px] xl:h-[372px] xl:w-[250px] 2xl:h-[240px] 2xl:w-[166px] 3xl:h-[300px] 3xl:w-[208px] transition-all duration-300 
                 group-hover:h-[260px] group-hover:w-[162px] sm:group-hover:h-[436px] sm:group-hover:w-[270px] md:group-hover:h-[513px] md:group-hover:w-[318px] lg:group-hover:h-[698px] lg:group-hover:w-[432px] xl:group-hover:h-[872px] xl:group-hover:w-[540px] 2xl:group-hover:h-[547px] 2xl:group-hover:w-[340px] 3xl:group-hover:h-[684px] 3xl:group-hover:w-[424px]
@@ -69,9 +72,10 @@ const Carousel: FC = () => {
                 group-hover:grayscale-0"
                 style={{ backgroundImage: `url(${item.image})` }}
               />
+            </Link>
 
-              {/* Текст */}
-              {/* <div
+            {/* Текст */}
+            {/* <div
               className="z-10 absolute text-nowrap left-[190px] sm:left-[300px] md:left-[360px] lg:left-[480px] xl:left-[580px] 2xl:left-[400px] 3xl:left-[460px] top-0 
               flex flex-col gap-[6px] sm:gap-[10px] opacity-0 transition-opacity 
               duration-300 group-hover:opacity-100 pointer-events-none"
@@ -83,11 +87,10 @@ const Carousel: FC = () => {
                 {item.description}
               </p>
             </div> */}
-            </div>
-          ))}
-        </Marquee>
-      </div>
-    </Link>
+          </div>
+        ))}
+      </Marquee>
+    </div>
   );
 };
 
