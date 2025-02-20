@@ -78,7 +78,7 @@ const Hero: FC = () => {
           className="absolute right-[0px] -bottom-[140px] lg:hidden xl:block xl:w-[65vw] xl:-bottom-[200px] 3xl:-bottom-[400px]"
         /> */}
       </motion.div>
-      <div className="z-20 bottom-[20px] left-0 absolute w-full px-[20px] md:h-[68vh] md:justify-between md:flex md:flex-col md:mb-[60px] lg:block lg:h-auto xl:flex xl:justify-between xl:w-full xl:h-[65vh]">
+      <div className="z-20 bottom-28 sm:bottom-0 left-0 absolute w-full px-[20px] md:h-[68vh] md:justify-between md:flex md:flex-col md:mb-[60px] lg:block lg:h-auto xl:flex xl:justify-between xl:w-full xl:h-[65vh]">
         <Heading />
         <div className="flex flex-col md:flex-row md:items-center md:justify-between md:-mb-[60px] w-full lg:block xl:flex">
           <Stats />

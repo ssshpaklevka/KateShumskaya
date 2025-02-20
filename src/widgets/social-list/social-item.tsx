@@ -38,7 +38,7 @@ const SocialItem: FC<Props> = ({
         href={link}
         className={cn(
           'block',
-          index === 2 && '2xl:col-span-2',
+          index === 2 && '2xl:col-span-2 2xl:border-b 2xl:border-white',
           '2xl:border-white 2xl:border-t ',
         )}
       >
@@ -68,7 +68,7 @@ const SocialItem: FC<Props> = ({
             // YouTube - всегда черный
             index === 2 && [
               '2xl:h-[255px] 3xl:h-[344px]',
-              '2xl:border-b 2xl:border-white',
+
               '2xl:bg-black 2xl:text-white',
               '2xl:hover:bg-black 2xl:hover:text-white', // Блок всегда остается черным
             ],
@@ -119,7 +119,8 @@ const SocialItem: FC<Props> = ({
             <div
               className={cn(
                 'flex flex-row justify-between items-end 2xl:items-start 2xl:flex-col',
-                index === 2 && 'flex-row',
+                index === 2 &&
+                  '2xl:flex-row 2xl:items-end 2xl:gap-[43px] 3xl:gap-[60px]',
               )}
             >
               <motion.p
@@ -147,7 +148,10 @@ const SocialItem: FC<Props> = ({
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="mb-3 text-[10px] font-light sm:text-[16px] sm:leading-[22.5px] md:text-[16px] md:leading-[22.5px] xl:mb-0 ml-[60px] lg:text-[24px] lg:leading-[34px] xl:text-[24px] xl:leading-[34px] 2xl:text-[16px] 2xl:leading-[22.5px] 2xl:ml-[0px] 2xl:mt-[12px] 3xl:text-[21px] 3xl:leading-[30px] leading-[14px]  "
+                className={cn(
+                  'mb-3 text-[10px] font-light sm:text-[16px] sm:leading-[22.5px] md:text-[16px] md:leading-[22.5px] xl:mb-0 ml-[60px] lg:text-[24px] lg:leading-[34px] xl:text-[24px] xl:leading-[34px] 2xl:text-[16px] 2xl:leading-[22.5px] 2xl:ml-[0px] 2xl:mt-[12px] 3xl:text-[21px] 3xl:leading-[30px] leading-[14px]',
+                  index === 2 && '2xl:leading-[12px] 3xl:leading-[14px]',
+                )}
               >
                 subscribers
               </motion.p>

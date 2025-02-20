@@ -5,7 +5,7 @@ import CardsList from './cards-list';
 
 const Collaborated: FC = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col">
       <div className="flex flex-col 2xl:flex-row 2xl:gap-[135px] 3xl:gap-[85px] gap-[8px] px-[20px] sm:gap-[30px]">
         <h2 className="uppercase text-[38px] leading-[38px] sm:text-[64px] sm:leading-[64px] lg:text-[86px] lg:leading-[86px] xl:text-[80px] xl:leading-[80px] 2xl:text-[72px] 2xl:leading-[72px] 3xl:text-[90px] 3xl:leading-[90px] font-normal">
           Collaborated

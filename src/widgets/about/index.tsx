@@ -73,7 +73,7 @@ const About: FC = () => {
           Kate Shumskaya
         </motion.p>
 
-        <div className="max-w-[335px] sm:max-w-[562px] lg:max-w-[825px] relative mt-[40px] sm:text-[64px] flex flex-col w-full gap-[2px] uppercase text-[40px] leading-[100%] md:text-[64px] lg:text-[92px] xl:text-[104px] 2xl:text-[64px] 3xl:text-[90px]">
+        <div className="max-w-[335px] sm:max-w-[562px] lg:max-w-[825px] relative mt-[70px] sm:text-[64px] flex flex-col w-full gap-[2px] uppercase text-[40px] leading-[100%] md:text-[64px] lg:text-[92px] xl:text-[104px] 2xl:text-[64px] 3xl:text-[90px]">
           <h2 className="sr-only">
             Professional content creator and influencer
           </h2>
@@ -169,6 +169,11 @@ const About: FC = () => {
           style={{ originX: 0.5 }}
           className="mt-[42px] md:flex md:justify-center md:ml-6 lg:block lg:ml-0 xl:flex xl:justify-center"
         >
+          <div className="hidden 2xl:block absolute -bottom-24 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center z-[-1]">
+            <span className="select-none text-[120px] sm:text-[150px] md:text-[180px] lg:text-[200px] xl:text-[250px] 2xl:text-[200px] 3xl:text-[250px] opacity-[0.07] whitespace-nowrap bg-gradient-to-t from-black to-white bg-clip-text text-transparent">
+              SHUMSKAYA
+            </span>
+          </div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               className="w-full md:w-[305px] lg:w-full xl:w-[572px] 2xl:w-[344px] 3xl:w-[470px]"

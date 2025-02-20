@@ -93,7 +93,7 @@ const PopularityItem: FC<Props> = ({
             transition={{ duration: 0.3, delay: 0.7 }}
             className={cn(
               'text-[158px] leading-[158px] 3xl:text-[213px] 3xl:leading-[213px] font-medium tracking-[-3px]',
-              number === 17 ? 'ml-[20%]' : 'ml-[10%]',
+              number === 17 ? 'ml-[20%]' : 'ml-[1%]',
             )}
           >
             {number} <span className="font-light">{symbol}</span>
@@ -122,7 +122,7 @@ const PopularityItem: FC<Props> = ({
             transition={{ duration: 0.4, delay: 0.3 }}
             className={cn(
               'h-px bg-white w-full transform origin-right',
-              number === 17 ? 'ml-[20%]' : 'ml-[10%]',
+              number === 17 ? 'ml-[20%]' : 'ml-[0%]',
             )}
           />
           <motion.div

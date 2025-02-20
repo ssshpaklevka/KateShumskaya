@@ -4,7 +4,7 @@ import React from 'react';
 
 const Footer: FC = () => {
   return (
-    <div className="flex flex-col gap-[66px] sm:gap-[112px] lg:gap-[146px] xl:gap-[132px] 2xl:gap-[112px]">
+    <div className="flex flex-col gap-[66px] sm:gap-[112px] lg:gap-[146px] xl:gap-[132px] 2xl:gap-[112px] 3xl:gap-[143px]">
       <div className="flex flex-row">
         <h3 className="text-[14px] sm:text-[24px] sm:leading-[33px] lg:text-[32px] lg:leading-[44px] xl:text-[36px] xl:leading-[50px] 2xl:text-[24px] 2xl:leading-[33px] font-light w-1/2">
           Social networks
@@ -14,10 +14,10 @@ const Footer: FC = () => {
         </h3>
       </div>
       <div className="flex flex-row text-[10px] leading-[14px] sm:text-[16px] sm:leading-[22px] lg:text-[24px] lg:leading-[33px] xl:text-[24px] xl:leading-[33px] 2xl:text-[16px] 2xl:leading-[22px] font-light">
-        <div className="w-1/2 flex flex-col gap-[20px] sm:gap-[30px] lg:gap-[39px] xl:gap-[73px]">
+        <div className="w-1/2 flex flex-col gap-[18px] sm:gap-[33px] lg:gap-[39px] xl:gap-[73px] 2xl:gap-[33px] 3xl:gap-[40px]">
           <div className="flex justify-between max-w-[96px]">
             <Link
-              className="text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
+              className="text-[10px] sm:text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
               href={'#'}
             >
               Instagram
@@ -25,13 +25,13 @@ const Footer: FC = () => {
           </div>
           <div className="flex justify-between w-[100px] sm:w-[160px] lg:w-[210px] xl:w-[260px]">
             <Link
-              className="text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
+              className="text-[10px] sm:text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
               href={'#'}
             >
               TikTok
             </Link>
             <Link
-              className="text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
+              className="text-[10px] sm:text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
               href={'#'}
             >
               Twitch
@@ -39,23 +39,23 @@ const Footer: FC = () => {
           </div>
           <div className="flex justify-between w-[100px] sm:w-[160px] lg:w-[210px] xl:w-[260px]">
             <Link
-              className="text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
+              className="text-[10px] sm:text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
               href={'#'}
             >
               YouTube
             </Link>
             <Link
-              className="text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
+              className="text-[10px] sm:text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
               href={'#'}
             >
               X.com
             </Link>
           </div>
         </div>
-        <div className="flex flex-col gap-[20px] sm:gap-[30px] lg:gap-[39px] xl:gap-[73px]">
+        <div className="flex flex-col gap-[18px] sm:gap-[33px] lg:gap-[39px] xl:gap-[73px] 2xl:gap-[33px] 3xl:gap-[40px]">
           <div className="invisible flex justify-between max-w-[96px]">
             <Link
-              className="text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
+              className="text-[10px] sm:text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
               href={'#'}
             >
               ks@shumskayakate.com
@@ -63,7 +63,7 @@ const Footer: FC = () => {
           </div>{' '}
           <div className="flex justify-between max-w-[96px]">
             <Link
-              className="text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
+              className="text-[10px] sm:text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
               href={'#'}
             >
               ks@shumskayakate.com
@@ -71,7 +71,7 @@ const Footer: FC = () => {
           </div>
           <div className="flex text-nowrap justify-between w-[100px]">
             <Link
-              className="text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
+              className="text-[10px] sm:text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
               href={'#'}
             >
               Политика конфиденциальности

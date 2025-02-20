@@ -3,6 +3,7 @@
 'use client';
 import type { FC } from 'react';
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 import { cn } from '@/src/shared/lib/utils';
 
@@ -12,6 +13,13 @@ const data = [
   { src: '/img/slider/spotify/spotify.mp4', alt: 'Spotify' },
   { src: '/img/slider/xiaomi/xiaomi.mp4', alt: 'Xiaomi' },
 ];
+
+const brandLogos: Record<string, string> = {
+  Logitech: '/img/slider/logitech/logitech.svg',
+  Maxfactor: '/img/slider/maxfactor/maxfactor.svg',
+  Spotify: '/img/slider/spotify/spotify.svg',
+  Xiaomi: '/img/slider/xiaomi/xiaomi.svg',
+};
 
 const Slider: FC = () => {
   const [currentIndex, setCurrentIndex] = useState(1); // Без `window`
@@ -104,6 +112,7 @@ const Slider: FC = () => {
     setTouchStart(0);
     setTouchEnd(0);
   };
+
   const getSlideStyles = (distance: number) => {
     const isActive = distance === 0;
     const isFirstSide = Math.abs(distance) === 1;
@@ -113,19 +122,22 @@ const Slider: FC = () => {
 
     // Обновленные размеры с учетом мобильных устройств
     if (isActive) {
-      width = 'w-[350px] lg:w-[473px] xl:w-[588px] 2xl:w-[460px] 3xl:w-[574px]';
+      width =
+        'w-[210px] sm:w-[350px] lg:w-[473px] xl:w-[588px] 2xl:w-[460px] 3xl:w-[574px]';
       height =
-        'h-[550px] lg:h-[743px] xl:h-[924px] 2xl:h-[720px] 3xl:h-[900px]';
+        'h-[329px] sm:h-[550px] lg:h-[743px] xl:h-[924px] 2xl:h-[720px] 3xl:h-[900px]';
     } else if (isFirstSide) {
       // Увеличены размеры для мобильных устройств
-      width = 'w-[280px] lg:w-[378px] xl:w-[470px] 2xl:w-[368px] 3xl:w-[460px]';
+      width =
+        'w-[144px] sm:w-[208px] lg:w-[270px] xl:w-[350px] 2xl:w-[330px] 3xl:w-[410px]';
       height =
-        'h-[440px] lg:h-[594px] xl:h-[739px] 2xl:h-[576px] 3xl:h-[720px]';
+        'h-[207px] sm:h-[340px] lg:h-[455px] xl:h-[560px] 2xl:h-[542px] 3xl:h-[670px]';
     } else if (isSecondSide) {
       // Увеличены размеры для мобильных устройств
-      width = 'w-[230px] lg:w-[310px] xl:w-[386px] 2xl:w-[302px] 3xl:w-[378px]';
+      width =
+        'w-[144px] sm:w-[230px] lg:w-[310px] xl:w-[386px] 2xl:w-[230px] 3xl:w-[305px]';
       height =
-        'h-[361px] lg:h-[487px] xl:h-[607px] 2xl:h-[474px] 3xl:h-[592px]';
+        'h-[207px] sm:h-[361px] lg:h-[487px] xl:h-[607px] 2xl:h-[470px] 3xl:h-[575px]';
     }
 
     // Обновленные отступы с учетом мобильных устройств
@@ -144,10 +156,9 @@ const Slider: FC = () => {
       spacing = 30;
     } else if (windowWidth >= 640) {
       // sm
-      spacing = 25;
+      spacing = 15;
     } else {
-      // xs
-      spacing = 20;
+      spacing = 10;
     }
 
     // Расчет translateX с учетом размеров экрана
@@ -169,7 +180,7 @@ const Slider: FC = () => {
       translateX = distance * 200;
     } else {
       // xs
-      translateX = distance * 180;
+      translateX = distance * 150;
     }
 
     // Добавляем дополнительный отступ
@@ -191,6 +202,27 @@ const Slider: FC = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const getTranslateValue = (distance: number) => {
+    const isSecondSlide = Math.abs(distance) === 2;
+
+    if (windowWidth >= 1920) {
+      return isSecondSlide ? 425 : 480;
+    } else if (windowWidth >= 1536) {
+      return isSecondSlide ? 350 : 405;
+    } else if (windowWidth >= 1280) {
+      return isSecondSlide ? 520 : 480;
+    } else if (windowWidth >= 1024) {
+      return isSecondSlide ? 420 : 390;
+    } else if (windowWidth >= 768) {
+      return isSecondSlide ? 320 : 300;
+    } else if (windowWidth >= 640) {
+      return isSecondSlide ? 315 : 300;
+    } else {
+      return isSecondSlide ? 190 : 180;
+    }
+  };
+
   return (
     <div>
       <div
@@ -199,7 +231,7 @@ const Slider: FC = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="relative h-[550px] lg:h-[743px] xl:h-[924px] 2xl:h-[720px] 3xl:h-[900px] flex items-center justify-center overflow-hidden">
+        <div className="relative h-[329px] sm:h-[550px] lg:h-[743px] xl:h-[924px] 2xl:h-[720px] 3xl:h-[900px] flex items-center justify-center overflow-hidden">
           <div
             className="absolute w-full flex items-center justify-center"
             style={{ perspective: '1000px' }}
@@ -208,7 +240,7 @@ const Slider: FC = () => {
               const realIndex = getSlideIndex(index);
               const distance = index - currentIndex;
               const isActive = index === currentIndex;
-              const translateX = distance * (windowWidth >= 1536 ? 305 : 346);
+              const translateX = distance * getTranslateValue(distance);
               const styles = getSlideStyles(distance);
 
               return (
@@ -220,7 +252,7 @@ const Slider: FC = () => {
                     styles.height,
                   )}
                   style={{
-                    transform: `translateX(${translateX}px) scale(${isActive ? 1 : 0.8}) rotateY(${isActive ? 0 : distance * -15}deg)`,
+                    transform: `translateX(${translateX}px) scale(${isActive ? 1 : 0.8}) rotateY(${isActive ? 0 : distance * -30}deg)`,
                     zIndex: isActive ? 30 : 20 - Math.abs(distance),
                     filter: isActive ? 'none' : 'grayscale(100%)',
                     transition: 'transform 0.5s ease-out',
@@ -241,6 +273,26 @@ const Slider: FC = () => {
                     playsInline
                     onEnded={handleVideoEnd}
                   />
+                  {!isActive && (
+                    <div
+                      className={cn(
+                        'absolute inset-0 bg-gradient-to-r from-black/70 to-transparent',
+                        distance > 0 &&
+                          'bg-gradient-to-l from-black/60 to-transparent',
+                      )}
+                    />
+                  )}
+                  {isActive && (
+                    <div className="absolute bottom-0 w-full pb-[18px] sm:pb-[30px] lg:pb-[41px] xl:pb-[52px] 2xl:pb-[35px] 3xl:pb-[44px] transition-opacity duration-500 opacity-100">
+                      <Image
+                        src={brandLogos[data[realIndex].alt]}
+                        alt={data[realIndex].alt}
+                        width={500}
+                        height={500}
+                        className="mx-auto w-[120px] h-[22px] sm:w-[201px] sm:h-[37px] lg:w-[271px] lg:h-[50px] xl:w-[338px] xl:h-[62px] 2xl:w-[201px] 2xl:h-[37px] 3xl:w-[251px] 3xl:h-[46px]"
+                      />
+                    </div>
+                  )}
                 </div>
               );
             })}
