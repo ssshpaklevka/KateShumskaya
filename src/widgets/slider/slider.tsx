@@ -10,23 +10,27 @@ import { cn } from '@/src/shared/lib/utils';
 const data = [
   {
     src: '/img/slider/logitech/logitech1.mp4',
+    mobileSrc: '/img/slider/logitech/moblogitech1.mp4',
     alt: 'Logitech',
-    poster: '/img/slider/1.png',
+    poster: '/img/slider/logitech/logitech.webp',
   },
   {
     src: '/img/slider/maxfactor/maxfactor1.mp4',
+    mobileSrc: '/img/slider/maxfactor/mobmaxfactor1.mp4',
     alt: 'Maxfactor',
-    poster: '/img/slider/3.png',
+    poster: '/img/slider/maxfactor/maxfactor.webp',
   },
   {
     src: '/img/slider/spotify/spotify1.mp4',
+    mobileSrc: '/img/slider/spotify/mobspotify1.mp4',
     alt: 'Spotify',
-    poster: '/img/slider/1.png',
+    poster: '/img/slider/spotify/spotify.webp',
   },
   {
     src: '/img/slider/xiaomi/xiaomi1.mp4',
+    mobileSrc: '/img/slider/xiaomi/mobxiaomi1.mp4',
     alt: 'Xiaomi',
-    poster: '/img/slider/2.png',
+    poster: '/img/slider/xiaomi/xiaomi.webp',
   },
 ];
 
@@ -38,7 +42,6 @@ const brandLogos: Record<string, string> = {
 };
 
 const Slider: FC = () => {
-  const [loadedVideos, setLoadedVideos] = useState<Record<number, boolean>>({});
   const [currentIndex, setCurrentIndex] = useState(1); // Без `window`
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
   const [touchStart, setTouchStart] = useState<number>(0);
@@ -69,13 +72,10 @@ const Slider: FC = () => {
     return ((index % data.length) + data.length) % data.length;
   };
 
-  const handleVideoLoad = (index: number) => {
-    setLoadedVideos((prev) => ({ ...prev, [index]: true }));
-  };
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
       if (video) {
-        if (index === currentIndex && loadedVideos[index]) {
+        if (index === currentIndex) {
           video.play().catch(() => {});
         } else {
           video.pause();
@@ -83,7 +83,7 @@ const Slider: FC = () => {
         }
       }
     });
-  }, [currentIndex, loadedVideos]);
+  }, [currentIndex]);
 
   const handleVideoEnd = () => {
     goNext();
@@ -243,6 +243,27 @@ const Slider: FC = () => {
     }
   };
 
+  const [loadedVideos, setLoadedVideos] = useState<Set<number>>(new Set());
+
+  useEffect(() => {
+    const newLoadedVideos = new Set(loadedVideos);
+    newLoadedVideos.add(currentIndex);
+    setLoadedVideos(newLoadedVideos);
+
+    // Воспроизведение видео для текущего слайда
+    const currentVideo = videoRefs.current[currentIndex];
+    if (currentVideo) {
+      currentVideo.play().catch(() => {});
+    }
+
+    // Пауза и сброс для остальных видео
+    videoRefs.current.forEach((video, index) => {
+      if (video && index !== currentIndex) {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, [currentIndex, loadedVideos]);
   return (
     <div>
       <div
@@ -281,20 +302,37 @@ const Slider: FC = () => {
                   }}
                   onClick={() => goToSlide(index)}
                 >
+                  <img
+                    src={data[realIndex].poster}
+                    alt={data[realIndex].alt}
+                    className="w-full h-full object-cover absolute inset-0"
+                  />
                   <video
                     ref={(el) => {
                       if (videoRefs.current) {
                         videoRefs.current[index] = el;
                       }
                     }}
-                    poster={data[realIndex].poster}
-                    src={data[realIndex].src}
-                    className="w-full h-full object-cover"
+                    src={
+                      windowWidth <= 768
+                        ? data[realIndex].mobileSrc
+                        : data[realIndex].src
+                    }
+                    className="w-full h-full object-cover absolute inset-0 transition-opacity duration-500"
+                    style={{
+                      opacity: isActive && loadedVideos.has(index) ? 1 : 0,
+                    }}
                     muted
                     playsInline
+                    preload="auto"
+                    onLoadedData={() => {
+                      const newLoadedVideos = new Set(loadedVideos);
+                      newLoadedVideos.add(index);
+                      setLoadedVideos(newLoadedVideos);
+                    }}
                     onEnded={handleVideoEnd}
-                    onLoadedData={() => handleVideoLoad(index)}
                   />
+
                   {!isActive && (
                     <div
                       className={cn(
