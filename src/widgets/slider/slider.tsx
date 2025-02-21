@@ -8,10 +8,26 @@ import Image from 'next/image';
 import { cn } from '@/src/shared/lib/utils';
 
 const data = [
-  { src: '/img/slider/logitech/logitech1.mp4', alt: 'Logitech' },
-  { src: '/img/slider/maxfactor/maxfactor1.mp4', alt: 'Maxfactor' },
-  { src: '/img/slider/spotify/spotify1.mp4', alt: 'Spotify' },
-  { src: '/img/slider/xiaomi/xiaomi1.mp4', alt: 'Xiaomi' },
+  {
+    src: '/img/slider/logitech/logitech1.mp4',
+    alt: 'Logitech',
+    poster: '/img/slider/1.png',
+  },
+  {
+    src: '/img/slider/maxfactor/maxfactor1.mp4',
+    alt: 'Maxfactor',
+    poster: '/img/slider/3.png',
+  },
+  {
+    src: '/img/slider/spotify/spotify1.mp4',
+    alt: 'Spotify',
+    poster: '/img/slider/1.png',
+  },
+  {
+    src: '/img/slider/xiaomi/xiaomi1.mp4',
+    alt: 'Xiaomi',
+    poster: '/img/slider/2.png',
+  },
 ];
 
 const brandLogos: Record<string, string> = {
@@ -22,6 +38,7 @@ const brandLogos: Record<string, string> = {
 };
 
 const Slider: FC = () => {
+  const [loadedVideos, setLoadedVideos] = useState<Record<number, boolean>>({});
   const [currentIndex, setCurrentIndex] = useState(1); // Без `window`
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
   const [touchStart, setTouchStart] = useState<number>(0);
@@ -52,10 +69,13 @@ const Slider: FC = () => {
     return ((index % data.length) + data.length) % data.length;
   };
 
+  const handleVideoLoad = (index: number) => {
+    setLoadedVideos((prev) => ({ ...prev, [index]: true }));
+  };
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
       if (video) {
-        if (index === currentIndex) {
+        if (index === currentIndex && loadedVideos[index]) {
           video.play().catch(() => {});
         } else {
           video.pause();
@@ -63,7 +83,7 @@ const Slider: FC = () => {
         }
       }
     });
-  }, [currentIndex]);
+  }, [currentIndex, loadedVideos]);
 
   const handleVideoEnd = () => {
     goNext();
@@ -267,11 +287,13 @@ const Slider: FC = () => {
                         videoRefs.current[index] = el;
                       }
                     }}
+                    poster={data[realIndex].poster}
                     src={data[realIndex].src}
                     className="w-full h-full object-cover"
                     muted
                     playsInline
                     onEnded={handleVideoEnd}
+                    onLoadedData={() => handleVideoLoad(index)}
                   />
                   {!isActive && (
                     <div
