@@ -246,10 +246,6 @@ const Slider: FC = () => {
   const [loadedVideos, setLoadedVideos] = useState<Set<number>>(new Set());
 
   useEffect(() => {
-    const newLoadedVideos = new Set(loadedVideos);
-    newLoadedVideos.add(currentIndex);
-    setLoadedVideos(newLoadedVideos);
-
     // Воспроизведение видео для текущего слайда
     const currentVideo = videoRefs.current[currentIndex];
     if (currentVideo) {
@@ -263,7 +259,7 @@ const Slider: FC = () => {
         video.currentTime = 0;
       }
     });
-  }, [currentIndex, loadedVideos]);
+  }, [currentIndex]);
   return (
     <div>
       <div
@@ -326,9 +322,11 @@ const Slider: FC = () => {
                     playsInline
                     preload="auto"
                     onLoadedData={() => {
-                      const newLoadedVideos = new Set(loadedVideos);
-                      newLoadedVideos.add(index);
-                      setLoadedVideos(newLoadedVideos);
+                      setLoadedVideos((prev) => {
+                        const newSet = new Set(prev);
+                        newSet.add(index);
+                        return newSet;
+                      });
                     }}
                     onEnded={handleVideoEnd}
                   />
