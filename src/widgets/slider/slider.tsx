@@ -8,10 +8,10 @@ import Image from 'next/image';
 import { cn } from '@/src/shared/lib/utils';
 
 const data = [
-  { src: '/img/slider/logitech/logitech.mp4', alt: 'Logitech' },
-  { src: '/img/slider/maxfactor/maxfactor.mp4', alt: 'Maxfactor' },
-  { src: '/img/slider/spotify/spotify.mp4', alt: 'Spotify' },
-  { src: '/img/slider/xiaomi/xiaomi.mp4', alt: 'Xiaomi' },
+  { src: '/img/slider/logitech/logitech1.mp4', alt: 'Logitech' },
+  { src: '/img/slider/maxfactor/maxfactor1.mp4', alt: 'Maxfactor' },
+  { src: '/img/slider/spotify/spotify1.mp4', alt: 'Spotify' },
+  { src: '/img/slider/xiaomi/xiaomi1.mp4', alt: 'Xiaomi' },
 ];
 
 const brandLogos: Record<string, string> = {
