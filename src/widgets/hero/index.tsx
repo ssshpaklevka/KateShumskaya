@@ -100,7 +100,7 @@ import { Button } from '@/src/shared/components/ui/button';
 
 const Hero: FC = () => {
   return (
-    <div className="relative flex h-screen md:h-[490px] xl:h-[820px] 2xl:h-[880px] 3xl:h-[1080px] overflow-hidden">
+    <div className="relative flex md:h-[490px] lg:h-[1400px] xl:h-[820px] 2xl:h-[880px] 3xl:h-[1080px] overflow-hidden">
       {/* пк версия */}
       <div className="hidden sm:hidden md:flex lg:hidden xl:flex 2xl:flex 3xl:flex flex-col md:mt-[50px] mt-[80px] md:gap-[0px] xl:gap-[0px] 2xl:gap-[190px] 3xl:gap-[140px]">
         <div className="flex md:gap-[15px] xl:gap-[23px] 2xl:gap-[75px] 3xl:gap-[95px]">
@@ -141,45 +141,41 @@ const Hero: FC = () => {
           </div>
         </div>
       </div>
-      <div className=" hidden sm:hidden md:flex lg:hidden xl:flex 2xl:flex 3xl:flex">
+      <div className="hidden sm:hidden md:flex lg:hidden xl:flex 2xl:flex 3xl:flex">
+        {/* боковая тень */}
         <svg
-          className="hidden xl:block absolute xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] 3xl:right-[640px] z-10 w-[449px] h-[144px] md:w-[222px] md:h-[600px] 2xl:w-[222px] 2xl:h-[560px] 3xl:w-[268px] 3xl:h-[650px] 3xl:blur-[40px] xl:blur-[80px] 2xl:blur-[50px]"
-          viewBox="0 0 268 650"
+          className="absolute md:right-[260px] md:-bottom-14 xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] 3xl:right-[640px] 3xl:-bottom-28 z-10 w-[449px] h-[144px] md:w-[222px] md:h-[400px] 2xl:w-[222px] 2xl:h-[560px] 3xl:w-[268px] 3xl:h-[700px] 3xl:blur-[40px] md:blur-[20px] xl:blur-[40px] 2xl:blur-[50px]"
+          viewBox="0 0 268 700"
           xmlns="http://www.w3.org/2000/svg"
         >
           <ellipse
             cx="134"
-            cy="325"
+            cy="350"
             rx="134"
-            ry="325"
+            ry="350"
             fill="hsla(0, 0%, 0%, 1)"
           />
         </svg>
+        {/* кружок тень */}
         <svg
-          className="hidden xl:block absolute xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] 3xl:right-[650px] 2xl:-bottom-[80px] z-10 w-[449px] h-[144px] md:w-[200px] md:h-[200px] xl:blur-[60px] 2xl:blur-[30px]"
-          viewBox="0 0 200 200"
+          className="absolute md:right-[250px] md:-bottom-10 xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] 3xl:right-[610px] 2xl:-bottom-[80px] z-10 w-[449px] h-[144px] md:w-[120px] md:h-[120px] 3xl:w-[180px] 3xl:h-[180px] md:blur-[20px] xl:blur-[40px] 2xl:blur-[30px] 3xl:blur-[20px]"
+          viewBox="0 0 180 180"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <ellipse
-            cx="100"
-            cy="100"
-            rx="100"
-            ry="100"
-            fill="hsla(0, 0%, 0%, 1)"
-          />
+          <ellipse cx="90" cy="90" rx="90" ry="90" fill="hsla(0, 0%, 0%, 1)" />
         </svg>
 
         {/* Тень снизу */}
         <svg
-          className="hidden xl:block absolute xl:-bottom-28 xl:right-0 2xl:right-6 3xl:-bottom-28 3xl:right-14 z-10 w-[449px] h-[144px] md:w-[800px] md:h-[263px] xl:blur-[60px] 2xl:blur-[50px]"
-          viewBox="0 0 800 263"
+          className="absolute md:-bottom-28 md:right-5 xl:-bottom-28 xl:right-0 2xl:right-6 3xl:-bottom-36 3xl:right-36 z-10 w-[449px] h-[144px] md:w-[400px] md:h-[220px] 3xl:w-[800px] 3xl:h-[250px] md:blur-[30px] xl:blur-[50px] 2xl:blur-[50px] 3xl:blur-[20px]"
+          viewBox="0 0 800 250"
           xmlns="http://www.w3.org/2000/svg"
         >
           <ellipse
             cx="400"
-            cy="131.5"
+            cy="125"
             rx="400"
-            ry="131.5"
+            ry="125"
             fill="hsla(0, 0%, 0%, 1)"
           />
         </svg>
@@ -270,9 +266,11 @@ const Hero: FC = () => {
             </div>
           </div>
 
-          <Button size={'default'} className="w-full">
-            Contact the manager
-          </Button>
+          <div className="max-w-[calc(100%-40px)] sm:max-w-[calc(100%-120px)]">
+            <Button size={'default'} className="w-full">
+              Contact the manager
+            </Button>
+          </div>
         </div>
       </div>
     </div>

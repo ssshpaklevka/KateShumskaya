@@ -54,7 +54,7 @@ const About: FC = () => {
           src={'/img/professional/kate.png'}
           width={3000}
           height={3000}
-          className="md:w-auto md:h-screen 2xl:w-auto 2xl:h-screen lg:w-screen lg:h-auto xl:w-[60vw] xl:-left-[200px] xl:bottom-[0px] xl:absolute mb-[20px] lg:static md:absolute  md:-left-[100px] md:bottom-[0px]"
+          className="md:w-auto  2xl:w-auto 2xl:h-screen lg:w-screen lg:h-auto xl:w-[60vw] xl:-left-[200px] xl:bottom-[0px] xl:absolute mb-[20px] lg:static md:absolute  md:-left-[190px] md:bottom-[0px]"
         />
       </motion.div>
 
@@ -62,7 +62,7 @@ const About: FC = () => {
         variants={containerVariants}
         initial="initial"
         animate={isInView ? 'animate' : 'initial'}
-        className="absolute px-[20px] bottom-[20px] 2xl:max-w-[560px] 3xl:max-w-[900px]  3xl:right-[5vw] 2xl:right-[20vw] 2xl:top-[20vh]  w-full z-30 left-0 md:right-[20px]  md:left-auto md:max-w-[490px] lg:w-full lg:max-w-full lg:right-none lg:left-0 lg:top-[900px] xl:right-[20px]   xl:left-auto xl:max-w-[933px]"
+        className="absolute px-[20px] bottom-[20px] 2xl:max-w-[560px] 3xl:max-w-[900px]  3xl:right-[5vw] 2xl:right-[20vw] 2xl:top-[20vh]  w-full z-30 left-0 md:right-[20px] md:left-auto md:top-28 md:max-w-[490px] lg:w-full lg:max-w-full lg:right-none lg:left-0 lg:top-[900px] xl:right-[20px] xl:top-16   xl:left-auto xl:max-w-[933px]"
       >
         <motion.p
           initial={{ y: 20, opacity: 0 }}

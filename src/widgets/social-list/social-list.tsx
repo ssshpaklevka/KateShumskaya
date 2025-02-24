@@ -39,7 +39,7 @@ const SOCIAL_NETWORKS = [
 
 const SocialList: FC = () => {
   return (
-    <div className="flex flex-col gap-[1px] md:px-[63px] lg:px-[0px] xl:px-[63px] 2xl:px-0 2xl:grid grid-cols-2">
+    <div className="flex flex-col gap-[1px]  2xl:px-0 2xl:grid grid-cols-2">
       {SOCIAL_NETWORKS.map((item, index) => (
         <SocialItem
           index={index}
