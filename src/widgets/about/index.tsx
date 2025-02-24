@@ -40,7 +40,7 @@ const About: FC = () => {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className="relative h-screen overflow-hidden"
+      className="relative h-screen lg:h-[1800px] xl:h-screen overflow-hidden"
     >
       <motion.div
         initial={{ scale: 1.2, opacity: 0 }}
@@ -62,7 +62,7 @@ const About: FC = () => {
         variants={containerVariants}
         initial="initial"
         animate={isInView ? 'animate' : 'initial'}
-        className="absolute px-[20px] bottom-[20px] 2xl:max-w-[560px] 3xl:max-w-[900px]  3xl:right-[5vw] 2xl:right-[20vw] 2xl:top-[20vh]  w-full z-30 left-0 md:right-[20px]  md:left-auto md:max-w-[490px] lg:w-full lg:max-w-full lg:right-none lg:left-0  xl:right-[20px]   xl:left-auto xl:max-w-[933px]"
+        className="absolute px-[20px] bottom-[20px] 2xl:max-w-[560px] 3xl:max-w-[900px]  3xl:right-[5vw] 2xl:right-[20vw] 2xl:top-[20vh]  w-full z-30 left-0 md:right-[20px]  md:left-auto md:max-w-[490px] lg:w-full lg:max-w-full lg:right-none lg:left-0 lg:top-[900px] xl:right-[20px]   xl:left-auto xl:max-w-[933px]"
       >
         <motion.p
           initial={{ y: 20, opacity: 0 }}
@@ -169,7 +169,7 @@ const About: FC = () => {
           style={{ originX: 0.5 }}
           className="mt-[42px] md:flex md:justify-center md:ml-6 lg:block lg:ml-0 xl:flex xl:justify-center"
         >
-          <div className="hidden 2xl:block absolute -bottom-24 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center z-[-1]">
+          <div className="hidden 2xl:block absolute -bottom-24  2xl:-bottom-14 3xl:-bottom-72 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center z-[-1]">
             <span className="select-none text-[120px] sm:text-[150px] md:text-[180px] lg:text-[200px] xl:text-[250px] 2xl:text-[200px] 3xl:text-[250px] opacity-[0.07] whitespace-nowrap bg-gradient-to-t from-black to-white bg-clip-text text-transparent">
               SHUMSKAYA
             </span>

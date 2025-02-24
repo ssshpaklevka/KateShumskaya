@@ -100,9 +100,9 @@ import { Button } from '@/src/shared/components/ui/button';
 
 const Hero: FC = () => {
   return (
-    <div className="relative flex xl:h-[820px] 2xl:h-[880px] 3xl:h-[940px] overflow-hidden">
+    <div className="relative flex h-screen md:h-[490px] xl:h-[820px] 2xl:h-[880px] 3xl:h-[1080px] overflow-hidden">
       {/* пк версия */}
-      <div className="hidden sm:hidden md:flex lg:hidden xl:flex 2xl:flex 3xl:flex flex-col md:mt-[50px] mt-[80px] md:gap-[0px] xl:gap-[0px] 2xl:gap-[190px] 3xl:gap-[160px]">
+      <div className="hidden sm:hidden md:flex lg:hidden xl:flex 2xl:flex 3xl:flex flex-col md:mt-[50px] mt-[80px] md:gap-[0px] xl:gap-[0px] 2xl:gap-[190px] 3xl:gap-[140px]">
         <div className="flex md:gap-[15px] xl:gap-[23px] 2xl:gap-[75px] 3xl:gap-[95px]">
           <p className="md:text-[14px] md:leading-[19px] xl:text-[24px] xl:leading-[33px] 2xl:text-[16px] 2xl:leading-[22px] 3xl:text-[21px] 3xl:leading-[30px] uppercase font-normal tracking-[10%]">
             ARTIST
@@ -118,7 +118,7 @@ const Hero: FC = () => {
           </p>
         </div>
         <div className="z-40">
-          <p className="md:text-[74px] md:leading-[74px] xl:text-[122px] xl:leading-[122px] md:mt-[50px] md:mb-[145px] xl:mt-[120px] xl:mb-[244px] 2xl:mt-[0px] 2xl:mb-[0px] 2xl:text-[151px] 2xl:leading-[151px] 3xl:text-[196px] 3xl:leading-[196px]">
+          <p className="md:text-[74px] md:leading-[74px] xl:text-[122px] xl:leading-[122px] md:mt-[50px] md:mb-[145px] xl:mt-[120px] xl:mb-[244px] 2xl:mt-[0px] 2xl:mb-[0px] 3xl:mb-[190px] 2xl:text-[151px] 2xl:leading-[151px] 3xl:text-[196px] 3xl:leading-[196px]">
             KATE <br /> SHUMSKAYA
           </p>
         </div>
@@ -143,20 +143,20 @@ const Hero: FC = () => {
       </div>
       <div className=" hidden sm:hidden md:flex lg:hidden xl:flex 2xl:flex 3xl:flex">
         <svg
-          className="hidden xl:block absolute xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] z-10 w-[449px] h-[144px] md:w-[222px] md:h-[600px] 2xl:w-[222px] 2xl:h-[560px] xl:blur-[80px] 2xl:blur-[50px]"
-          viewBox="0 0 222 600"
+          className="hidden xl:block absolute xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] 3xl:right-[640px] z-10 w-[449px] h-[144px] md:w-[222px] md:h-[600px] 2xl:w-[222px] 2xl:h-[560px] 3xl:w-[268px] 3xl:h-[650px] 3xl:blur-[40px] xl:blur-[80px] 2xl:blur-[50px]"
+          viewBox="0 0 268 650"
           xmlns="http://www.w3.org/2000/svg"
         >
           <ellipse
-            cx="111"
-            cy="300"
-            rx="111"
-            ry="300"
+            cx="134"
+            cy="325"
+            rx="134"
+            ry="325"
             fill="hsla(0, 0%, 0%, 1)"
           />
         </svg>
         <svg
-          className="hidden xl:block absolute xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] 2xl:-bottom-[80px] z-10 w-[449px] h-[144px] md:w-[200px] md:h-[200px] xl:blur-[60px] 2xl:blur-[40px]"
+          className="hidden xl:block absolute xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] 3xl:right-[650px] 2xl:-bottom-[80px] z-10 w-[449px] h-[144px] md:w-[200px] md:h-[200px] xl:blur-[60px] 2xl:blur-[30px]"
           viewBox="0 0 200 200"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -171,7 +171,7 @@ const Hero: FC = () => {
 
         {/* Тень снизу */}
         <svg
-          className="hidden xl:block absolute xl:-bottom-28 xl:right-0 2xl:right-6 z-10 w-[449px] h-[144px] md:w-[800px] md:h-[263px] xl:blur-[60px] 2xl:blur-[50px]"
+          className="hidden xl:block absolute xl:-bottom-28 xl:right-0 2xl:right-6 3xl:-bottom-28 3xl:right-14 z-10 w-[449px] h-[144px] md:w-[800px] md:h-[263px] xl:blur-[60px] 2xl:blur-[50px]"
           viewBox="0 0 800 263"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -188,7 +188,7 @@ const Hero: FC = () => {
           src={'/img/hero/kate.png'}
           height={3000}
           width={3000}
-          className="-z-10 w-auto static md:absolute right-0 md:h-[520px] xl:h-[920px] 2xl:h-[1100px] 3xl:h-[1300px]"
+          className="-z-10 w-auto static md:absolute right-0 md:h-[520px] xl:h-[920px] 2xl:h-[1100px] 3xl:h-[1200px]"
         />
         {/* <Button className="w-full md:w-fit lg:w-full xl:w-fit hidden sm:hidden md:block lg:hidden xl:block 2xl:block 3xl:block absolute bottom-0 right-0 md:mb-[20px] xl:mb-[30px] 2xl:mb-[40px] md:mr-[20px] xl:mr-[30px] 2xl:mr-[40px]">
           Contact the manager

@@ -13,7 +13,7 @@ import Contentsss from '@/src/widgets/content/contentsss';
 const Home: FC = () => {
   return (
     <div className="flex flex-col gap-[80px] min-h-screen">
-      <div className="px-[20px] min-h-screen">
+      <div className="px-[20px]">
         <Hero />
       </div>
       <div className="min-h-screen xl:mt-[80px]">
