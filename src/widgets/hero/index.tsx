@@ -100,7 +100,7 @@ import { Button } from '@/src/shared/components/ui/button';
 
 const Hero: FC = () => {
   return (
-    <div className="relative flex md:h-[490px] lg:h-[1400px] xl:h-[820px] 2xl:h-[880px] 3xl:h-[1080px] overflow-hidden">
+    <div className="relative flex md:h-[490px] lg:h-[1400px] xl:h-[820px] 2xl:h-[880px] 3xl:h-[960px] overflow-hidden">
       {/* пк версия */}
       <div className="hidden sm:hidden md:flex lg:hidden xl:flex 2xl:flex 3xl:flex flex-col md:mt-[50px] mt-[80px] md:gap-[0px] xl:gap-[0px] 2xl:gap-[190px] 3xl:gap-[140px]">
         <div className="flex md:gap-[15px] xl:gap-[23px] 2xl:gap-[75px] 3xl:gap-[95px]">
@@ -118,7 +118,7 @@ const Hero: FC = () => {
           </p>
         </div>
         <div className="z-40">
-          <p className="md:text-[74px] md:leading-[74px] xl:text-[122px] xl:leading-[122px] md:mt-[50px] md:mb-[145px] xl:mt-[120px] xl:mb-[244px] 2xl:mt-[0px] 2xl:mb-[0px] 3xl:mb-[190px] 2xl:text-[151px] 2xl:leading-[151px] 3xl:text-[196px] 3xl:leading-[196px]">
+          <p className="md:text-[74px] md:leading-[74px] xl:text-[122px] xl:leading-[122px] md:mt-[50px] md:mb-[145px] xl:mt-[120px] xl:mb-[244px] 2xl:mt-[0px] 2xl:mb-[0px] 3xl:mb-[70px] 2xl:text-[151px] 2xl:leading-[151px] 3xl:text-[196px] 3xl:leading-[196px]">
             KATE <br /> SHUMSKAYA
           </p>
         </div>
@@ -144,7 +144,7 @@ const Hero: FC = () => {
       <div className="hidden sm:hidden md:flex lg:hidden xl:flex 2xl:flex 3xl:flex">
         {/* боковая тень */}
         <svg
-          className="absolute md:right-[260px] md:-bottom-14 xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] 3xl:right-[640px] 3xl:-bottom-28 z-10 w-[449px] h-[144px] md:w-[222px] md:h-[400px] 2xl:w-[222px] 2xl:h-[560px] 3xl:w-[268px] 3xl:h-[700px] 3xl:blur-[40px] md:blur-[20px] xl:blur-[40px] 2xl:blur-[50px]"
+          className="absolute md:right-[260px] md:-bottom-14 xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] 3xl:right-[690px] 3xl:-bottom-28 z-10 w-[449px] h-[144px] md:w-[222px] md:h-[400px] 2xl:w-[222px] 2xl:h-[560px] 3xl:w-[268px] 3xl:h-[700px] 3xl:blur-[40px] md:blur-[20px] xl:blur-[40px] 2xl:blur-[50px]"
           viewBox="0 0 268 700"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -158,7 +158,7 @@ const Hero: FC = () => {
         </svg>
         {/* кружок тень */}
         <svg
-          className="absolute md:right-[250px] md:-bottom-10 xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] 3xl:right-[610px] 2xl:-bottom-[80px] z-10 w-[449px] h-[144px] md:w-[120px] md:h-[120px] 3xl:w-[180px] 3xl:h-[180px] md:blur-[20px] xl:blur-[40px] 2xl:blur-[30px] 3xl:blur-[20px]"
+          className="absolute md:right-[250px] md:-bottom-10 xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] 3xl:right-[610px] 2xl:-bottom-[80px] z-10 w-[449px] h-[144px] md:w-[120px] md:h-[120px] 3xl:w-[180px] 3xl:h-[180px] md:blur-[20px] xl:blur-[40px] 2xl:blur-[30px] 3xl:blur-[30px]"
           viewBox="0 0 180 180"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -167,7 +167,7 @@ const Hero: FC = () => {
 
         {/* Тень снизу */}
         <svg
-          className="absolute md:-bottom-28 md:right-5 xl:-bottom-28 xl:right-0 2xl:right-6 3xl:-bottom-36 3xl:right-36 z-10 w-[449px] h-[144px] md:w-[400px] md:h-[220px] 3xl:w-[800px] 3xl:h-[250px] md:blur-[30px] xl:blur-[50px] 2xl:blur-[50px] 3xl:blur-[20px]"
+          className="absolute md:-bottom-28 md:right-5 xl:-bottom-28 xl:right-0 2xl:right-6 3xl:-bottom-48 3xl:right-36 z-10 w-[449px] h-[144px] md:w-[400px] md:h-[220px] 3xl:w-[800px] 3xl:h-[250px] md:blur-[30px] xl:blur-[50px] 2xl:blur-[50px] 3xl:blur-[20px]"
           viewBox="0 0 800 250"
           xmlns="http://www.w3.org/2000/svg"
         >
