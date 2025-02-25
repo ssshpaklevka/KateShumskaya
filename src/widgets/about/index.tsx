@@ -160,7 +160,7 @@ const About: FC = () => {
 
         <>
           <div className="hidden 2xl:block absolute -bottom-24  2xl:-bottom-14 3xl:-bottom-72 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center z-[-1]">
-            <span className="select-none text-[120px] sm:text-[150px] md:text-[180px] lg:text-[200px] xl:text-[250px] 2xl:text-[200px] 3xl:text-[250px] opacity-[0.2] whitespace-nowrap bg-gradient-to-t from-black to-white bg-clip-text text-transparent">
+            <span className="select-none text-[120px] sm:text-[150px] md:text-[180px] lg:text-[200px] xl:text-[250px] 2xl:text-[200px] 3xl:text-[250px] opacity-[0.1] whitespace-nowrap bg-gradient-to-t from-black to-white bg-clip-text text-transparent">
               SHUMSKAYA
             </span>
           </div>

@@ -6,6 +6,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
 import { cn } from '@/src/shared/lib/utils';
+import CustomCursor from '@/src/shared/ui/custom-cursor/CustomCursor';
 
 const data = [
   {
@@ -260,8 +261,11 @@ const Slider: FC = () => {
       }
     });
   }, [currentIndex]);
+  const [isHovering, setIsHovering] = useState(false);
+
   return (
     <div>
+      <CustomCursor isVisible={isHovering} text="look" />
       <div
         className="w-full max-w-[1920px] mx-auto relative"
         onTouchStart={handleTouchStart}
@@ -295,8 +299,11 @@ const Slider: FC = () => {
                     transition: 'transform 0.5s ease-out',
                     isolation: 'isolate',
                     backfaceVisibility: 'hidden',
+                    cursor: isHovering ? 'none' : 'pointer',
                   }}
                   onClick={() => goToSlide(index)}
+                  onMouseEnter={() => setIsHovering(true)}
+                  onMouseLeave={() => setIsHovering(false)}
                 >
                   <img
                     src={data[realIndex].poster}
