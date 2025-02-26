@@ -144,7 +144,7 @@ const Hero: FC = () => {
       <div className="hidden sm:hidden md:flex lg:hidden xl:flex 2xl:flex 3xl:flex">
         {/* боковая тень */}
         <svg
-          className="absolute md:right-[260px] md:-bottom-14 xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] 3xl:right-[690px] 3xl:-bottom-28 z-10 w-[449px] h-[144px] md:w-[222px] md:h-[400px] 2xl:w-[222px] 2xl:h-[560px] 3xl:w-[268px] 3xl:h-[700px] 3xl:blur-[40px] md:blur-[20px] xl:blur-[40px] 2xl:blur-[50px]"
+          className="absolute md:right-[260px] md:-bottom-14 xl:-bottom-[50px] xl:right-[500px] 2xl:-bottom-36  2xl:right-[610px] 3xl:right-[690px] 3xl:-bottom-28 z-10 w-[449px] h-[144px] md:w-[222px] md:h-[400px] 2xl:w-[222px] 2xl:h-[560px] 3xl:w-[268px] 3xl:h-[700px] 3xl:blur-[40px] md:blur-[20px] xl:blur-[40px] 2xl:blur-[30px]"
           viewBox="0 0 268 700"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -158,7 +158,7 @@ const Hero: FC = () => {
         </svg>
         {/* кружок тень */}
         <svg
-          className="absolute md:right-[250px] md:-bottom-10 xl:-bottom-[50px] xl:right-[500px] 2xl:right-[600px] 3xl:right-[610px] 2xl:-bottom-[80px] z-10 w-[449px] h-[144px] md:w-[120px] md:h-[120px] 3xl:w-[180px] 3xl:h-[180px] md:blur-[20px] xl:blur-[40px] 2xl:blur-[30px] 3xl:blur-[30px]"
+          className="absolute md:right-[250px] md:-bottom-10 xl:-bottom-[50px] xl:right-[500px] 2xl:right-[580px] 3xl:right-[610px] 2xl:-bottom-[60px] z-10 w-[449px] h-[144px] md:w-[120px] md:h-[120px] 3xl:w-[180px] 3xl:h-[180px] md:blur-[20px] xl:blur-[40px] 2xl:blur-[30px] 3xl:blur-[30px]"
           viewBox="0 0 180 180"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -167,7 +167,7 @@ const Hero: FC = () => {
 
         {/* Тень снизу */}
         <svg
-          className="absolute md:-bottom-28 md:right-5 xl:-bottom-28 xl:right-0 2xl:right-6 3xl:-bottom-48 3xl:right-36 z-10 w-[449px] h-[144px] md:w-[400px] md:h-[220px] 3xl:w-[800px] 3xl:h-[250px] md:blur-[30px] xl:blur-[50px] 2xl:blur-[50px] 3xl:blur-[20px]"
+          className="absolute md:-bottom-28 md:right-5 xl:-bottom-28 xl:right-0 2xl:right-48 2xl:-bottom-36 3xl:-bottom-48 3xl:right-36 z-10 w-[449px] h-[144px] md:w-[400px] md:h-[220px] 2xl:w-[500px] 2xl:h-[250px] 3xl:w-[800px] 3xl:h-[250px] md:blur-[30px] xl:blur-[50px] 2xl:blur-[30px] 3xl:blur-[20px]"
           viewBox="0 0 800 250"
           xmlns="http://www.w3.org/2000/svg"
         >
