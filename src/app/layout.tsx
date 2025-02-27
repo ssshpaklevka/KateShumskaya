@@ -3,6 +3,7 @@ import './globals.css';
 import type { FC } from 'react';
 import React from 'react';
 import localFont from 'next/font/local';
+import { Toaster } from 'react-hot-toast';
 
 const helvetica = localFont({
   src: [
@@ -35,6 +36,7 @@ const RootLayout: FC<{
 }> = ({ children }) => {
   return (
     <html lang="en">
+      <Toaster position="bottom-right" />
       <body className={`${helvetica.className} antialiased`}>{children}</body>
     </html>
   );
