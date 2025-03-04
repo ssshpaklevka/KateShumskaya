@@ -265,7 +265,7 @@ const Slider: FC = () => {
 
   return (
     <div>
-      <CustomCursor isVisible={isHovering} text="look" />
+      {windowWidth > 768 && <CustomCursor isVisible={isHovering} text="look" />}
       <div
         className="w-full max-w-[1920px] mx-auto relative"
         onTouchStart={handleTouchStart}

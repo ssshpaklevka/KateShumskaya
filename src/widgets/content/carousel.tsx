@@ -1,6 +1,6 @@
 'use client';
 import type { FC } from 'react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Marquee from 'react-simple-marquee';
 import Link from 'next/link';
 
@@ -30,10 +30,21 @@ const CONTENT = [
 ];
 const Carousel: FC = () => {
   const [isHovering, setIsHovering] = useState(false);
-
+  const [windowWidth, setWindowWidth] = useState<number>(
+    typeof window !== 'undefined' ? window.innerWidth : 1920,
+  );
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const handleResize = () => setWindowWidth(window.innerWidth);
+      handleResize(); // Устанавливаем сразу
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+    return undefined; // Explicitly return undefined
+  }, []);
   return (
     <div className="relative min-h-[280px] sm:min-h-[460px] md:min-h-[540px] lg:min-h-[720px] xl:min-h-[900px] 2xl:min-h-[590px] 3xl:min-h-[710px]  flex items-center justify-center">
-      <CustomCursor isVisible={isHovering} text="look" />
+      {windowWidth > 768 && <CustomCursor isVisible={isHovering} text="look" />}
 
       {/* Градиенты */}
       <div className="absolute left-0 top-0 h-full w-[50px] z-30 bg-gradient-to-r from-black to-transparent" />
