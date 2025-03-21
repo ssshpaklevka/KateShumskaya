@@ -264,7 +264,7 @@ const Slider: FC = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div>
+    <div className="hidden md:block">
       {windowWidth > 768 && <CustomCursor isVisible={isHovering} text="look" />}
       <div
         className="w-full max-w-[1920px] mx-auto relative"

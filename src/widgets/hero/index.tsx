@@ -90,10 +90,11 @@
 // };
 
 // export default Hero;
-
+'use client';
 import Image from 'next/image';
 import type { FC } from 'react';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 import { cn } from '@/src/shared/lib/utils';
 import { Button } from '@/src/shared/components/ui/button';
@@ -200,34 +201,34 @@ const Hero: FC = () => {
       {/* моб версия */}
       <div className="block sm:block md:hidden lg:block xl:hidden 2xl:hidden 3xl:hidden relative flex-col w-full">
         <div className="flex items-center">
-          <div className="absolute pb-[90px] sm:pb-[120px] sm:pl-[40px] lg:pb-[220px] lg:pl-[60px] z-10">
-            <div className="flex flex-col gap-[17px] sm:gap-[30px] lg:gap-[43px]">
-              <p className="text-[8px] leading-[11px] sm:text-[14px] sm:leading-[19.6px] lg:text-[20px] lg:leading-[28px]">
+          <div className="absolute top-[185px] px-[30px] z-50 w-full mix-blend-difference">
+            <div className="flex justify-between gap-[17px] sm:gap-[30px] lg:gap-[43px]">
+              <p className="text-[10px] leading-[11px] sm:text-[14px] sm:leading-[19.6px] lg:text-[20px] lg:leading-[28px]">
                 ARTIST
               </p>
-              <p className="text-[8px] leading-[11px] sm:text-[14px] sm:leading-[19.6px] lg:text-[20px] lg:leading-[28px]">
+              <p className="text-[10px] leading-[11px] sm:text-[14px] sm:leading-[19.6px] lg:text-[20px] lg:leading-[28px]">
                 MODEL
               </p>
-              <p className="text-[8px] leading-[11px] sm:text-[14px] sm:leading-[19.6px] lg:text-[20px] lg:leading-[28px]">
+              <p className="text-[10px] leading-[11px] sm:text-[14px] sm:leading-[19.6px] lg:text-[20px] lg:leading-[28px]">
                 INFLUENCER
               </p>
-              <p className="text-[8px] leading-[11px] sm:text-[14px] sm:leading-[19.6px] lg:text-[20px] lg:leading-[28px]">
+              <p className="text-[10px] leading-[11px] sm:text-[14px] sm:leading-[19.6px] lg:text-[20px] lg:leading-[28px]">
                 ACTRESS
               </p>
             </div>
           </div>
 
-          <div className="flex justify-center relative w-full">
+          <div className="flex justify-center w-full">
             <Image
-              src={'/img/hero/kate.png'}
+              src={'/img/hero/kate_mobile_upscayl_3x_realesrgan-x4plus.webp'}
               alt="kate"
               width={3000}
               height={3000}
-              className="object-contain w-[235px] h-[360px] sm:w-[393px] sm:h-[520px] lg:w-full lg:h-screen"
+              className="object-contain w-[100%] h-[100%] sm:w-[393px] sm:h-[520px] lg:w-full lg:h-screen"
             />
             <p
               className={cn(
-                'text-[clamp(50px,14vw,97px)] leading-[1] sm:text-[97px] sm:leading-[97px] lg:text-[140px] lg:leading-[140px] absolute -bottom-14 sm:-bottom-28 lg:-bottom-40 pl-[0px] sm:pl-[60px]',
+                'mix-blend-difference text-center bottom-auto top-[35px] text-[clamp(50px,14vw,97px)] leading-[1] sm:text-[97px] sm:leading-[97px] lg:text-[140px] lg:leading-[140px] absolute pl-[0px] sm:pl-[60px]',
                 'medium',
               )}
             >
@@ -236,41 +237,50 @@ const Hero: FC = () => {
           </div>
         </div>
 
-        <div className="mt-[90px] sm:mt-[150px] flex flex-col gap-8 pl-[0px] pr-[0px] sm:pl-[60px] ">
-          <div className="flex mt-[10px] sm:mt-[40px] lg:mt-[60px] gap-[60px] sm:gap-[104px] lg:gap-[200px]">
-            <div className="flex flex-col gap-[7px] sm:gap-[12px] lg:gap-[17px]">
+        <div className="absolute w-full b-0 top-[125vw] z-50 flex flex-col gap-8]">
+          <div className="flex mt-[10px] max-[320px]:mb-[3vw] sm:mt-[40px] lg:mt-[60px] gap-[60px] sm:gap-[104px] lg:gap-[200px] pl-[26px] mb-[6vw]">
+            <div className="flex flex-col">
               <p
                 className={cn(
-                  'text-[28px] leading-[40px] sm:text-[48px] sm:leading-[67px] lg:text-[69px] lg:leading-[96px]',
+                  'text-[28px] max-[320px]:text-[20px] leading-[40px] sm:text-[48px] sm:leading-[67px] lg:text-[69px] lg:leading-[96px] ',
                   'font-light',
                 )}
               >
                 18 million
               </p>
-              <p className="text-[10px] leading-[14px] sm:text-[16px] sm:leading-[22px] lg:text-[24px] lg:leading-[33px]">
+              <p className="text-[10px] max-[320px]:text-[7px] leading-[14px] sm:text-[16px] sm:leading-[22px] lg:text-[24px] lg:leading-[33px]">
                 Amount of subscribers
               </p>
             </div>
-            <div className="flex flex-col gap-[7px] sm:gap-[12px] lg:gap-[17px]">
+            <div className="flex flex-col">
               <p
                 className={cn(
-                  'text-[28px] leading-[40px] sm:text-[48px] sm:leading-[67px] lg:text-[69px] lg:leading-[96px]',
+                  'text-[28px] max-[320px]:text-[20px] leading-[40px] sm:text-[48px] sm:leading-[67px] lg:text-[69px] lg:leading-[96px]',
                   'font-light',
                 )}
               >
                 110 million
               </p>
-              <p className="text-[10px] leading-[14px] sm:text-[16px] sm:leading-[22px] lg:text-[24px] lg:leading-[33px]">
+              <p className="text-[10px] max-[320px]:text-[7px] leading-[14px] sm:text-[16px] sm:leading-[22px] lg:text-[24px] lg:leading-[33px]">
                 View per mounth
               </p>
             </div>
           </div>
 
-          <div className="max-w-[calc(100%-40px)] sm:max-w-[calc(100%-120px)]">
-            <Button size={'default'} className="w-full">
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 0.8,
+              type: 'tween',
+              stiffness: 100,
+            }}
+            className=""
+          >
+            <Button size={'default'} className="w-full p-0" variant={'link'}>
               Contact the manager
             </Button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

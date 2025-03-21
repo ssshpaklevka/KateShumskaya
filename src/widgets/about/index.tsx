@@ -42,6 +42,22 @@ const About: FC = () => {
       transition={{ duration: 0.8 }}
       className="relative h-screen lg:h-[1800px] xl:h-screen overflow-hidden"
     >
+      <motion.div className="absolute left-auto top-auto right-auto bottom-auto w-full h-full z-10 overflow-visible">
+        {/* <Image
+          alt=""
+          src={'/img/professional/right_shadow.svg'}
+          width={891}
+          height={157}
+          className="w-[125px] h-[100vh] object-cover relative left-[43vw] z-99"
+        /> */}
+        <svg
+          className="absolute w-[157px] h-[1000px] blur-[30px] 3xl:left-[770px] 2xl:left-[550px] xl:left-[400px] max-lg:opacity-0"
+          viewBox="0 0 157 1000"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="157" height="1000" fill="hsla(0, 0%, 0%, 1)" />
+        </svg>
+      </motion.div>
       <motion.div
         initial={{ scale: 1.2, opacity: 0 }}
         animate={
@@ -51,7 +67,7 @@ const About: FC = () => {
       >
         <Image
           alt=""
-          src={'/img/professional/kate.png'}
+          src={'/img/professional/kate1.webp'}
           width={3000}
           height={3000}
           className="md:w-auto  2xl:w-auto 2xl:h-screen lg:w-screen lg:h-auto xl:w-[60vw] xl:-left-[200px] xl:bottom-[0px] xl:absolute mb-[20px] lg:static md:absolute  md:-left-[190px] md:bottom-[0px]"

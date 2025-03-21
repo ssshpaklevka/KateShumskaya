@@ -17,7 +17,7 @@ const SOCIAL_NETWORKS = [
     iconWhite: Tiktokw,
     symbol: 'M',
     subscribers: '12',
-    link: 'https://www.tiktok.com/@mimisskate?_t=8sISTOjNIQb&_r=1',
+    link: 'https://www.tiktok.com/@mimisskate?_t=ZS-8urTw12CWBz&_r=1',
   },
   {
     network: 'Instagram',

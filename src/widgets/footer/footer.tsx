@@ -18,7 +18,9 @@ const Footer: FC = () => {
           <div className="flex justify-between max-w-[96px]">
             <Link
               className="text-[10px] sm:text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
-              href={'#'}
+              href={
+                'https://www.instagram.com/mimisskate?igsh=MTlldzF1ejZ3MW5mdw=='
+              }
             >
               Instagram
             </Link>
@@ -26,13 +28,13 @@ const Footer: FC = () => {
           <div className="flex justify-between w-[100px] sm:w-[160px] lg:w-[210px] xl:w-[260px]">
             <Link
               className="text-[10px] sm:text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
-              href={'#'}
+              href={'https://www.tiktok.com/@mimisskate?_t=ZS-8urTw12CWBz&_r=1'}
             >
               TikTok
             </Link>
             <Link
               className="text-[10px] sm:text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
-              href={'#'}
+              href={'https://m.twitch.tv/mimisskate/'}
             >
               Twitch
             </Link>
@@ -40,7 +42,7 @@ const Footer: FC = () => {
           <div className="flex justify-between w-[100px] sm:w-[160px] lg:w-[210px] xl:w-[260px]">
             <Link
               className="text-[10px] sm:text-[16px] lg:text-[24px] 2xl:text-[16px] 3xl:text-[21px]"
-              href={'#'}
+              href={'https://youtube.com/@mimisskate?si=gX-RclY80vZzhYwx'}
             >
               YouTube
             </Link>
