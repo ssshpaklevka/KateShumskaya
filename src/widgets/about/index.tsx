@@ -70,7 +70,14 @@ const About: FC = () => {
           src={'/img/professional/kate1.webp'}
           width={3000}
           height={3000}
-          className="md:w-auto  2xl:w-auto 2xl:h-screen lg:w-screen lg:h-auto xl:w-[60vw] xl:-left-[200px] xl:bottom-[0px] xl:absolute mb-[20px] lg:static md:absolute  md:-left-[190px] md:bottom-[0px]"
+          className="md:w-auto  2xl:w-auto 2xl:h-screen lg:w-screen lg:h-auto xl:w-[60vw] xl:-left-[200px] xl:bottom-[0px] xl:absolute mb-[20px] lg:static hidden md:block md:absolute  md:-left-[190px] md:bottom-[0px]"
+        />
+        <Image
+          alt=""
+          src={'/img/professional/kate111.webp'}
+          width={3000}
+          height={3000}
+          className="md:w-auto  2xl:w-auto 2xl:h-screen lg:w-screen lg:h-auto xl:w-[60vw] xl:-left-[200px] xl:bottom-[0px] xl:absolute mb-[20px] lg:static block md:hidden md:absolute  md:-left-[190px] md:bottom-[0px]"
         />
       </motion.div>
 
@@ -196,6 +203,12 @@ const About: FC = () => {
               <Button
                 className="w-full md:w-[305px] lg:w-full xl:w-[572px] 2xl:w-[344px] 3xl:w-[470px]"
                 variant={'outline'}
+                onClick={() => {
+                  const formElement = document.getElementById('contact-form');
+                  if (formElement) {
+                    formElement.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
                 Contact the manager
               </Button>
