@@ -51,7 +51,7 @@ const About: FC = () => {
           className="w-[125px] h-[100vh] object-cover relative left-[43vw] z-99"
         /> */}
         <svg
-          className="absolute w-[157px] h-[1000px] blur-[30px] 3xl:left-[770px] 2xl:left-[550px] xl:left-[400px] max-lg:opacity-0"
+          className="absolute w-[157px] h-[1000px] blur-[30px] 3xl:left-[730px] 2xl:left-[650px] xl:left-[440px] max-lg:opacity-0"
           viewBox="0 0 157 1000"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -65,19 +65,19 @@ const About: FC = () => {
         }
         transition={{ duration: 1, ease: 'easeOut' }}
       >
-        <Image
+        {/* <Image
           alt=""
           src={'/img/professional/kate1.webp'}
           width={3000}
           height={3000}
           className="md:w-auto  2xl:w-auto 2xl:h-screen lg:w-screen lg:h-auto xl:w-[60vw] xl:-left-[200px] xl:bottom-[0px] xl:absolute mb-[20px] lg:static hidden md:block md:absolute  md:-left-[190px] md:bottom-[0px]"
-        />
+        /> */}
         <Image
           alt=""
           src={'/img/professional/kate111.webp'}
           width={3000}
           height={3000}
-          className="md:w-auto  2xl:w-auto 2xl:h-screen lg:w-screen lg:h-auto xl:w-[60vw] xl:-left-[200px] xl:bottom-[0px] xl:absolute mb-[20px] lg:static block md:hidden md:absolute  md:-left-[190px] md:bottom-[0px]"
+          className="md:w-auto  2xl:w-auto 2xl:h-screen lg:w-screen lg:h-auto xl:w-[60vw] xl:-left-[200px] xl:bottom-[0px] xl:absolute mb-[20px] lg:static  md:absolute  md:-left-[190px] md:bottom-[0px]"
         />
       </motion.div>
 
@@ -167,27 +167,61 @@ const About: FC = () => {
           transition={{ duration: 0.5, delay: 1 }}
           className="w-full justify-end xl:justify-center flex"
         >
-          <p className="text-[10px] mr-[20px] font-light leading-[14px] lg:mr-0  mt-[40px] max-w-[245px] sm:text-[16px] sm:leading-[22.5px] md:text-[16px] md:leading-[22.5px] lg:text-[24px] lg:leading-[34px] xl:text-[24px] xl:leading-[34px] 2xl:text-[16px] 2xl:leading-[22.5px] 3xl:text-[21px] 3xl:leading-[30px] sm:max-w-[415px] md:max-w-[343px] lg:max-w-[609px] xl:max-w-[572px] 2xl:max-w-[344px] 3xl:max-w-[477px]">
-            Katya became known around the world thanks to her striking
-            resemblance to Scarlett Johansson, captivating millions with her{' '}
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
-              className="font-medium italic"
+          <div>
+            <p className="text-[10px] mr-[20px] font-light leading-[14px] lg:mr-0 mt-[40px] max-w-[245px] sm:text-[16px] sm:leading-[22.5px] md:text-[16px] md:leading-[22.5px] lg:text-[24px] lg:leading-[34px] xl:text-[24px] xl:leading-[34px] 2xl:text-[16px] 2xl:leading-[22.5px] 3xl:text-[21px] 3xl:leading-[30px] sm:max-w-[415px] md:max-w-[343px] lg:max-w-[609px] xl:max-w-[572px] 2xl:max-w-[344px] 3xl:max-w-[477px]">
+              Katya became known around the world thanks to her striking
+              resemblance to Scarlett Johansson, captivating millions with her{' '}
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ duration: 0.5, delay: 1.2 }}
+                className="font-medium italic"
+              >
+                unique content
+              </motion.span>
+            </p>
+
+            {/* Кнопка только для мобильных устройств */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: 1.4,
+                ease: [0.76, 0, 0.24, 1],
+              }}
+              style={{ originX: 0.5 }}
+              className="mt-[20px] sm:hidden"
             >
-              unique content
-            </motion.span>
-          </p>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  className="w-[171px]"
+                  variant={'outline'}
+                  onClick={() => {
+                    const formElement = document.getElementById('contact-form');
+                    if (formElement) {
+                      formElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Contact the manager
+                </Button>
+              </motion.div>
+            </motion.div>
+          </div>
         </motion.div>
 
         <>
-          <div className="hidden 2xl:block absolute -bottom-24  2xl:-bottom-14 3xl:-bottom-72 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center z-[-1]">
+          <div className="hidden 2xl:block absolute -bottom-24 2xl:-bottom-14 3xl:-bottom-72 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center z-[-1]">
             <span className="select-none text-[120px] sm:text-[150px] md:text-[180px] lg:text-[200px] xl:text-[250px] 2xl:text-[200px] 3xl:text-[250px] opacity-[0.1] whitespace-nowrap bg-gradient-to-t from-black to-white bg-clip-text text-transparent">
               SHUMSKAYA
             </span>
           </div>
 
+          {/* Кнопка для планшетов и больших экранов */}
           <motion.div
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
@@ -197,11 +231,11 @@ const About: FC = () => {
               ease: [0.76, 0, 0.24, 1],
             }}
             style={{ originX: 0.5 }}
-            className="mt-[42px] mr-[20px] sm:mr-[0px] flex justify-center sm:block sm:justify-normal md:flex md:justify-center md:ml-6 lg:block lg:ml-0 xl:flex xl:justify-center"
+            className="mt-[42px] ml-[29px] hidden sm:block sm:justify-normal md:flex md:justify-center md:ml-6 lg:block lg:ml-0 xl:flex xl:justify-center"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
-                className="w-[171px] sm:w-full md:w-[305px] lg:w-full xl:w-[572px] 2xl:w-[344px] 3xl:w-[470px]"
+                className="w-full md:w-[305px] lg:w-full xl:w-[572px] 2xl:w-[344px] 3xl:w-[470px]"
                 variant={'outline'}
                 onClick={() => {
                   const formElement = document.getElementById('contact-form');
