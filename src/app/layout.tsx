@@ -27,7 +27,11 @@ const helvetica = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'KATE SHUMSKAYA',
+  metadataBase: new URL('https://shumskayakate.com'),
+  title: {
+    default: 'KATE SHUMSKAYA',
+    template: '%s | KATE SHUMSKAYA',
+  },
   description: 'Professional content creator and influencer',
   keywords: [
     'Kate Shumskaya',
