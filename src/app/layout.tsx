@@ -60,6 +60,10 @@ export const metadata: Metadata = {
     locale: 'ru_RU',
     type: 'website',
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 const RootLayout: FC<{
