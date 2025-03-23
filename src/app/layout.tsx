@@ -27,7 +27,7 @@ const helvetica = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://shumskayakate.com'),
+  metadataBase: new URL('https://shumskayakate.com/'),
   title: {
     default: 'KATE SHUMSKAYA',
     template: '%s | KATE SHUMSKAYA',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'KATE SHUMSKAYA',
     description: 'Professional content creator and influencer',
-    url: 'https://shumskayakate.com',
+    url: 'https://shumskayakate.com/',
     siteName: 'Kate Shumskaya',
     images: [
       {
