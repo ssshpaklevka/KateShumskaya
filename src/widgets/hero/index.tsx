@@ -363,12 +363,12 @@ const Hero: FC = () => {
           </div>
 
           <motion.div
-            initial={{ y: 100, opacity: 0 }}
+            initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{
-              duration: 0.8,
-              type: 'tween',
-              stiffness: 100,
+              duration: 1.5,
+              type: 'spring',
+              stiffness: 50,
             }}
             className=""
           >

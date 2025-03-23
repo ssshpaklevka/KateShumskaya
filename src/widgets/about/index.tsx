@@ -197,11 +197,11 @@ const About: FC = () => {
               ease: [0.76, 0, 0.24, 1],
             }}
             style={{ originX: 0.5 }}
-            className="mt-[42px] md:flex md:justify-center md:ml-6 lg:block lg:ml-0 xl:flex xl:justify-center"
+            className="mt-[42px] mr-[20px] sm:mr-[0px] flex justify-center sm:block sm:justify-normal md:flex md:justify-center md:ml-6 lg:block lg:ml-0 xl:flex xl:justify-center"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
-                className="w-full md:w-[305px] lg:w-full xl:w-[572px] 2xl:w-[344px] 3xl:w-[470px]"
+                className="w-[171px] sm:w-full md:w-[305px] lg:w-full xl:w-[572px] 2xl:w-[344px] 3xl:w-[470px]"
                 variant={'outline'}
                 onClick={() => {
                   const formElement = document.getElementById('contact-form');
