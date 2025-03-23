@@ -18,7 +18,7 @@ const Header: FC = () => {
           </div>
           <div className="relative">
             <Image
-              src={'/img/hero/kate.png'}
+              src={'/img/hero/kate.webp'}
               alt="kate"
               width={3000}
               height={3000}

@@ -182,7 +182,7 @@ const Hero: FC = () => {
         </svg>
         <Image
           alt=""
-          src={'/img/hero/kate.png'}
+          src={'/img/hero/kate.webp'}
           height={3000}
           width={3000}
           className="-z-10 w-auto static md:absolute right-0 md:h-[520px] xl:h-[920px] 2xl:h-[1100px] 3xl:h-[1200px] 3xl:-bottom-44"
