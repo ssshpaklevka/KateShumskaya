@@ -5,7 +5,7 @@ import React from 'react';
 import PopularityItem from './popularity-item';
 const POPULARITY = [
   {
-    number: 110,
+    number: 230,
     symbol: 'M',
     description: {
       default: (
@@ -19,9 +19,9 @@ const POPULARITY = [
     },
     subtitle: (
       <>
-        That&apos;s 153 thousand views per
+        That&apos;s 319 thousand views per
         <br />
-        hour or 2,546 views per minute
+        hour or 5,324 views per minute
       </>
     ),
     iconSrc: '/eyes.svg',
