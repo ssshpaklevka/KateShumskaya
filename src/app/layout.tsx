@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: 'Kate Shumskaya',
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: '/favicon.ico',
         width: 1200,
         height: 630,
         alt: 'Kate Shumskaya',
@@ -67,6 +67,10 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  icons: {
+    icon: '/favicon.ico', // или '/icon.png'
+    shortcut: '/favicon.ico',
   },
 };
 
