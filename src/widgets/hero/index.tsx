@@ -134,7 +134,7 @@ const Hero: FC = () => {
           </div>
           <div className="flex flex-col xl:gap-[13px] 2xl:gap-[23px] 3xl:gap-[10px]">
             <p className="md:text-[36px] md:leading-[50px] xl:text-[60px] xl:leading-[84px] 2xl:text-[51px] 2xl:leading-[71px] 3xl:text-[67px] 3xl:leading-[94px] font-light">
-              110 million
+              230 million
             </p>
             <p className="md:text-[16px] md:leading-[22px] xl:text-[24px] xl:leading-[33px] 2xl:text-[16px] 2xl:leading-[22px] 3xl:text-[21px] 3xl:leading-[30px] font-normal">
               Views per mounth
@@ -268,7 +268,7 @@ const Hero: FC = () => {
                   'font-light',
                 )}
               >
-                110 million
+                230 million
               </p>
               <p className="text-[10px] leading-[14px] sm:text-[16px] sm:leading-[22px] lg:text-[24px] lg:leading-[33px]">
                 View per mounth
@@ -354,7 +354,7 @@ const Hero: FC = () => {
                   'font-light',
                 )}
               >
-                110 million
+                230 million
               </p>
               <p className="text-[10px] max-[320px]:text-[7px] leading-[14px] sm:text-[16px] sm:leading-[22px] lg:text-[24px] lg:leading-[33px]">
                 View per mounth
