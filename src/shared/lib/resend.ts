@@ -16,7 +16,7 @@ export async function sendEmail(
 ): Promise<SendEmailResponse> {
   try {
     const { data, error } = await resend.emails.send({
-      from: 'KateShumskaya <onboarding@resend.dev>',
+      from: 'KateShumskaya <kate@shumskayakate.com>',
       to: 'ks@shumskayakate.com',
       subject: 'Новая заявка с сайта',
       html: `

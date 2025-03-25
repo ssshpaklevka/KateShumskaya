@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: '/favicon.ico', // или '/icon.png'
+    icon: '/favicon.ico',
     shortcut: '/favicon.ico',
   },
 };
