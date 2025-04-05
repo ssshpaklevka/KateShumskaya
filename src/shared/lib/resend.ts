@@ -13,6 +13,7 @@ type SendEmailResponse =
 export async function sendEmail(
   name: string,
   email: string,
+  description: string,
 ): Promise<SendEmailResponse> {
   try {
     const { data, error } = await resend.emails.send({
@@ -23,6 +24,7 @@ export async function sendEmail(
         <h2>Заявка с сайта</h2>
         <p><strong>Имя:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Description:</strong> ${description}</p>
       `,
     });
 
