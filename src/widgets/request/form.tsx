@@ -111,21 +111,20 @@ const Form: FC = () => {
         </div>
 
         <div className="relative w-full xl:w-2/4 flex">
-          <textarea
+          <input
             {...register('description', {
               required: 'Description обязателен для заполнения',
             })}
             placeholder="Application Description"
             className={`
-    flex items-center pt-5 pl-5
+    flex items-center xl:pt-5 xl:pl-5
     text-left bg-black text-white 
     text-[16px] sm:text-[24px] sm:leading-[33px] 
     lg:text-[40px] lg:leading-[55px] 
     xl:text-[24px] xl:leading-[33px] 
     3xl:text-[30px] 3xl:leading-[42px] 
     font-light 
-    placeholder:absolute placeholder:top-1/2 placeholder:left-1/2 
-    placeholder:-translate-x-1/2 placeholder:-translate-y-1/2
+  
     placeholder:w-full placeholder:text-center
     placeholder:text-white/50
     border w-full 
